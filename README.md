@@ -26,3 +26,7 @@ return static function (RectorConfig $rectorConfig): void {
     ]);
 };
 ```
+
+### Thank you note
+
+We would like to thank @alexander-schranz for starting this initiative and setting up initial codebase structure.

@@ -6,5 +6,5 @@ use Rector\Config\RectorConfig;
 use Sylius\Rector\Set\SyliusSetList;
 
 return static function (RectorConfig $rectorConfig): void {
-    $rectorConfig->sets([SyliusSetList::SYLIUS_1_10, SyliusSetList::SYLIUS_1_11]);
+    $rectorConfig->sets([SyliusSetList::SYLIUS_1_10]);
 };

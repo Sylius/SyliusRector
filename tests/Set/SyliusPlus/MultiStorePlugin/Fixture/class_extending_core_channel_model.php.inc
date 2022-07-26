@@ -18,7 +18,7 @@ use Sylius\Component\Core\Model\Channel as BaseChannel;
 
 class Channel extends BaseChannel implements \Sylius\MultiStorePlugin\BusinessUnits\Domain\Model\ChannelInterface, \Sylius\MultiStorePlugin\CustomerPools\Domain\Model\ChannelInterface
 {
-    use \Sylius\MultiStorePlugin\CustomerPools\Domain\Model\CustomerPoolAwareTrait;
+    use \Sylius\MultiStorePlugin\BusinessUnits\Domain\Model\BusinessUnitAwareTrait;
 }
 
 ?>

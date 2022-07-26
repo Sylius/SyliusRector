@@ -5,16 +5,14 @@ declare(strict_types=1);
 namespace Sylius\SyliusRector\Rector\Class_;
 
 use PhpParser\Node;
-use PhpParser\Node\Name\FullyQualified;
 use PhpParser\Node\Stmt\Class_;
-use PHPStan\Reflection\ClassReflection;
 use Rector\Core\Contract\Rector\ConfigurableRectorInterface;
+use Rector\Core\NodeManipulator\ClassInsertManipulator;
+use Rector\Core\NodeManipulator\ClassManipulator;
 use Rector\Core\Rector\AbstractRector;
-use Rector\Core\Reflection\ReflectionResolver;
+use Sylius\SyliusRector\NodeManipulator\ClassInheritanceManipulator;
 use Symplify\RuleDocGenerator\Exception\PoorDocumentationException;
-use Symplify\RuleDocGenerator\Exception\ShouldNotHappenException;
 use Symplify\RuleDocGenerator\ValueObject\CodeSample\CodeSample;
-use Symplify\RuleDocGenerator\ValueObject\CodeSample\ConfiguredCodeSample;
 use Symplify\RuleDocGenerator\ValueObject\RuleDefinition;
 
 /**
@@ -24,8 +22,11 @@ final class AddTraitToClassExtendingTypeRector extends AbstractRector implements
 {
     private array $addTraitToClassExtendingTypeRectorConfig = [];
 
-    public function __construct(private readonly ReflectionResolver $reflectionResolver)
-    {
+    public function __construct(
+        private readonly ClassInheritanceManipulator $classInheritanceManipulator,
+        private readonly ClassManipulator $classManipulator,
+        private readonly ClassInsertManipulator $classInsertManipulator,
+    ){
     }
 
     /**
@@ -69,20 +70,19 @@ final class AddTraitToClassExtendingTypeRector extends AbstractRector implements
     /**
      * @param Class_ $node
      */
-    public function refactor(Node $node): ?Node
+    public function refactor(Node $node): Node|array|null
     {
-        $classReflection = $this->reflectionResolver->resolveClassReflection($node);
-        if (!$classReflection instanceof ClassReflection) {
-            return null;
-        }
-
-        foreach ($this->addTraitToClassExtendingTypeRectorConfig as $className => $interfaces) {
-            if (!in_array($className, $classReflection->getParentClassesNames(), true)) {
+        foreach ($this->addTraitToClassExtendingTypeRectorConfig as $className => $traits) {
+            if (!$this->classInheritanceManipulator->isDerivative($node, $className)) {
                 continue;
             }
 
-            foreach ($interfaces as $interface) {
-                $node->stmts[] = new Node\Stmt\TraitUse([new FullyQualified($interface)]);
+            foreach ($traits as $trait) {
+                if ($this->classManipulator->hasTrait($node, $trait)) {
+                    continue;
+                }
+
+                $this->classInsertManipulator->addAsFirstTrait($node, $trait);
             }
         }
 

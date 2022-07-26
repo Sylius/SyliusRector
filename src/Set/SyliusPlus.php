@@ -6,5 +6,5 @@ namespace Sylius\SyliusRector\Set;
 
 final class SyliusPlus
 {
-    final public const MULTI_STORE_PLUGIN = __DIR__ . '/../../config/sets/sylius/plus/multi-store-plugin.php';
+    public const MULTI_STORE_PLUGIN = __DIR__ . '/../../config/sets/sylius/plus/multi-store-plugin.php';
 }

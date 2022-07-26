@@ -5,12 +5,11 @@ declare(strict_types=1);
 namespace Sylius\SyliusRector\Rector\Class_;
 
 use PhpParser\Node;
-use PhpParser\Node\Name\FullyQualified;
 use PhpParser\Node\Stmt\Class_;
-use PHPStan\Reflection\ClassReflection;
 use Rector\Core\Contract\Rector\ConfigurableRectorInterface;
 use Rector\Core\Rector\AbstractRector;
-use Rector\Core\Reflection\ReflectionResolver;
+use Sylius\SyliusRector\NodeManipulator\ClassInheritanceManipulator;
+use Sylius\SyliusRector\NodeManipulator\ClassInterfaceManipulator;
 use Symplify\RuleDocGenerator\Exception\PoorDocumentationException;
 use Symplify\RuleDocGenerator\ValueObject\CodeSample\CodeSample;
 use Symplify\RuleDocGenerator\ValueObject\RuleDefinition;
@@ -23,7 +22,8 @@ final class AddInterfaceToClassExtendingTypeRector extends AbstractRector implem
     private array $addInterfaceToClassExtendingTypeRectorConfig = [];
 
     public function __construct(
-        private readonly ReflectionResolver $reflectionResolver
+        private readonly ClassInheritanceManipulator $classInheritanceManipulator,
+        private readonly ClassInterfaceManipulator $classInterfaceManipulator,
     ) {
     }
 
@@ -70,19 +70,12 @@ final class AddInterfaceToClassExtendingTypeRector extends AbstractRector implem
      */
     public function refactor(Node $node): ?Node
     {
-        $classReflection = $this->reflectionResolver->resolveClassReflection($node);
-        if (!$classReflection instanceof ClassReflection) {
-            return null;
-        }
-
         foreach ($this->addInterfaceToClassExtendingTypeRectorConfig as $className => $interfaces) {
-            if (!in_array($className, $classReflection->getParentClassesNames(), true)) {
+            if (!$this->classInheritanceManipulator->isDerivative($node, $className)) {
                 continue;
             }
 
-            foreach ($interfaces as $interface) {
-                $node->implements[] = new FullyQualified($interface);
-            }
+            $this->classInterfaceManipulator->addInterfaces($node, $interfaces);
         }
 
         return $node;

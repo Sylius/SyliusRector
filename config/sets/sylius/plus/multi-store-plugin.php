@@ -22,6 +22,7 @@ return static function (RectorConfig $rectorConfig): void {
     $rectorConfig->ruleWithConfiguration(AddTraitToClassExtendingTypeRector::class, [
         'Sylius\Component\Core\Model\Channel' => [
             'Sylius\MultiStorePlugin\BusinessUnits\Domain\Model\BusinessUnitAwareTrait',
+            'Sylius\MultiStorePlugin\CustomerPools\Domain\Model\CustomerPoolAwareTrait',
         ],
         'Sylius\Component\Core\Model\Customer' => [
             'Sylius\MultiStorePlugin\CustomerPools\Domain\Model\CustomerPoolAwareTrait',

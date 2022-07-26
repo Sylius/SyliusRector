@@ -4,7 +4,7 @@ namespace Sylius\SyliusRector\Tests\Rector\Class_\AddInterfaceToClassExtendingTy
 
 use Sylius\Component\Core\Model\Channel as BaseChannel;
 
-class Channel extends BaseChannel
+class Channel extends BaseChannel implements \Sylius\MultiStorePlugin\BusinessUnits\Domain\Model\ChannelInterface
 {
 }
 
@@ -18,8 +18,6 @@ use Sylius\Component\Core\Model\Channel as BaseChannel;
 
 class Channel extends BaseChannel implements \Sylius\MultiStorePlugin\BusinessUnits\Domain\Model\ChannelInterface, \Sylius\MultiStorePlugin\CustomerPools\Domain\Model\ChannelInterface
 {
-    use \Sylius\MultiStorePlugin\CustomerPools\Domain\Model\CustomerPoolAwareTrait;
-    use \Sylius\MultiStorePlugin\BusinessUnits\Domain\Model\BusinessUnitAwareTrait;
 }
 
 ?>

@@ -11,7 +11,7 @@ use Rector\Core\Reflection\ReflectionResolver;
 final class ClassInheritanceManipulator
 {
     public function __construct(
-        private readonly ReflectionResolver $reflectionResolver,
+        private ReflectionResolver $reflectionResolver,
     ) {
     }
 

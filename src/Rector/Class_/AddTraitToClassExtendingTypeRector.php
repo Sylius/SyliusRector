@@ -23,9 +23,9 @@ final class AddTraitToClassExtendingTypeRector extends AbstractRector implements
     private array $addTraitToClassExtendingTypeRectorConfig = [];
 
     public function __construct(
-        private readonly ClassInheritanceManipulator $classInheritanceManipulator,
-        private readonly ClassManipulator $classManipulator,
-        private readonly ClassInsertManipulator $classInsertManipulator,
+        private ClassInheritanceManipulator $classInheritanceManipulator,
+        private ClassManipulator $classManipulator,
+        private ClassInsertManipulator $classInsertManipulator,
     ){
     }
 

@@ -22,8 +22,8 @@ final class AddInterfaceToClassExtendingTypeRector extends AbstractRector implem
     private array $addInterfaceToClassExtendingTypeRectorConfig = [];
 
     public function __construct(
-        private readonly ClassInheritanceManipulator $classInheritanceManipulator,
-        private readonly ClassInterfaceManipulator $classInterfaceManipulator,
+        private ClassInheritanceManipulator $classInheritanceManipulator,
+        private ClassInterfaceManipulator $classInterfaceManipulator,
     ) {
     }
 

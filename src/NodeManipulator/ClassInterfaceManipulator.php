@@ -11,7 +11,7 @@ use Rector\NodeNameResolver\NodeNameResolver;
 final class ClassInterfaceManipulator
 {
     public function __construct(
-        private readonly NodeNameResolver $nodeNameResolver,
+        private NodeNameResolver $nodeNameResolver,
     ) {
     }
 

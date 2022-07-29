@@ -1,9 +1,37 @@
 # Rector Rules for Sylius
 
-## Install
+## Installation Sylius-Standard 1.12+
 
+Starting with Sylius-Standard 1.12 and above, we are providing a basic configuration to getting started with Sylius/SyliusRector. You can add rules or rule sets to your `<project_root>/rector.php` and reap benefits from Rector.
+
+## Installation pre Sylius-Standard 1.12
+
+`sylius/sylius-rector` package requires at least PHP 8.0. Of course, if you use PHP in version 7.4 you can use `rector/rector` to upgrade your PHP version easily!
+
+Then, when you meet the minimal requirements, run the following commands:
 ```bash
-composer require sylius/sylius-rector --dev
+composer require rector/rector --dev
+composer require sylius/sylius-rector
+```
+
+Finally, create `<project_root>/rector.php` file with the following content:
+```php
+<?php
+
+declare(strict_types=1);
+
+use Rector\CodeQuality\Rector\Class_\InlineConstructorDefaultToPropertyRector;
+use Rector\Config\RectorConfig;
+use Rector\Set\ValueObject\LevelSetList;
+use Sylius\SyliusRector\Set\SyliusPlus;
+
+return static function (RectorConfig $rectorConfig): void {
+    $rectorConfig->import(__DIR__ . '/vendor/sylius/sylius-rector/config/config.php');
+    $rectorConfig->paths([
+        __DIR__ . '/src'
+    ]);
+};
+
 ```
 
 ## Learn Rector Faster

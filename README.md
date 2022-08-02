@@ -42,3 +42,7 @@ Rector is a tool that [we develop](https://getrector.org/) and share for free, s
 * hire our experienced team to <a href="https://getrector.org/contact">improve your code base</a>
 
 Both ways support us to and improve Rector in sustainable way by learning from practical projects.
+
+### Thank you note
+
+We would like to thank @alexander-schranz for starting this initiative and setting up initial codebase structure.

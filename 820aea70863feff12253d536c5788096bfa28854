@@ -1,0 +1,15 @@
+---------------------------------------------------------------------------
+
+by Rafikooo at 2022-08-03T10:46:40Z
+
+> How will it behave when the name of the class / interface repeats with an already imported one? Will an alias be created?
+
+<img width="1081" alt="image" src="https://user-images.githubusercontent.com/40125720/182589755-0fa7dbfd-45de-4e7b-bf51-14f9fadcf735.png">
+
+@GSadee , If the name is already taken, the rector will keep it in its default form
+
+---------------------------------------------------------------------------
+
+by GSadee at 2022-08-03T11:20:06Z
+
+Thanks, Rafał! :1st_place_medal:

@@ -26,9 +26,10 @@ return static function(RectorConfig $rectorConfig): void {
         'Sylius\Plus\BusinessUnits' => 'Sylius\MultiStorePlugin\BusinessUnits',
         'Sylius\Plus\ChannelAdmin' => 'Sylius\MultiStorePlugin\ChannelAdmin',
         'Sylius\Plus\CustomerPools' => 'Sylius\MultiStorePlugin\CustomerPools',
-        'Sylius\Plus\Loyalty' => 'Sylius\LoyaltyPlugin',
-        'Sylius\Plus\Returns' => 'Sylius\ReturnPlugin',
-        'Sylius\Plus\PartialShipping' => 'Sylius\PartialShipmentPlugin',
         'Sylius\Plus\Inventory' => 'Sylius\MultiSourceInventoryPlugin',
+        'Sylius\Plus\Loyalty' => 'Sylius\LoyaltyPlugin',
+        'Sylius\Plus\PartialShipping' => 'Sylius\PartialShipmentPlugin',
+        'Sylius\Plus\Rbac' => 'Sylius\PlusRbacPlugin',
+        'Sylius\Plus\Returns' => 'Sylius\ReturnPlugin',
     ]);
 };

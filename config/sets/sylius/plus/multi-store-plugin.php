@@ -19,6 +19,7 @@ return static function (RectorConfig $rectorConfig): void {
             'Sylius\Component\Channel\Model\ChannelAwareInterface',
         ],
     ]);
+
     $rectorConfig->ruleWithConfiguration(AddTraitToClassExtendingTypeRector::class, [
         'Sylius\Component\Core\Model\Channel' => [
             'Sylius\MultiStorePlugin\BusinessUnits\Domain\Model\BusinessUnitAwareTrait',
@@ -42,6 +43,5 @@ return static function (RectorConfig $rectorConfig): void {
         'Sylius\Bundle\CoreBundle\Doctrine\ORM\ShipmentRepository' => [
             'Sylius\MultiStorePlugin\ChannelAdmin\Infrastructure\Doctrine\ORM\CreateShipmentListQueryBuilderTrait',
         ],
-
     ]);
 };

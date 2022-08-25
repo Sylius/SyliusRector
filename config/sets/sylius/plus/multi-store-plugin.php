@@ -17,6 +17,7 @@ return static function (RectorConfig $rectorConfig): void {
         ],
         'Sylius\Component\Core\Model\AdminUser' => [
             'Sylius\Component\Channel\Model\ChannelAwareInterface',
+            'Sylius\MultiStorePlugin\ChannelAdmin\Domain\Model\LastLoginIpAwareInterface',
         ],
     ]);
 
@@ -30,6 +31,7 @@ return static function (RectorConfig $rectorConfig): void {
         ],
         'Sylius\Component\Core\Model\AdminUser' => [
             'Sylius\MultiStorePlugin\ChannelAdmin\Domain\Model\AdminChannelAwareTrait',
+            'Sylius\MultiStorePlugin\ChannelAdmin\Domain\Model\LastLoginIpAwareTrait',
         ],
         'Sylius\Bundle\CoreBundle\Doctrine\ORM\CustomerRepository' => [
             'Sylius\MultiStorePlugin\ChannelAdmin\Infrastructure\Doctrine\ORM\FindLatestCustomersQueryTrait',

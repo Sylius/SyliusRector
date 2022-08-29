@@ -1,4 +1,4 @@
-# 2 Rules Overview
+# 3 Rules Overview
 
 ## AddInterfaceToClassExtendingTypeRector
 
@@ -65,5 +65,46 @@ use Sylius\Component\Core\Model\Channel as BaseChannel;
 class Channel extends BaseChannel
 {
 +    use \Sylius\MultiStorePlugin\CustomerPools\Domain\Model\CustomerPoolAwareTrait;
+}
+```
+
+## AliasTraitMethodRector
+
+Aliases the given trait's method to the given name
+
+:wrench: **configure it!**
+
+- class: [`Sylius\SyliusRector\Rector\TraitUse\AliasTraitMethodRector`](../src/Rector/TraitUse/AliasTraitMethodRector.php)
+
+```php
+use Rector\Config\RectorConfig;
+use Sylius\SyliusRector\Rector\Class_\AddTraitToClassExtendingTypeRector;
+
+return static function (RectorConfig $rectorConfig): void {
+    $rectorConfig->ruleWithConfiguration(AliasTraitMethodRector::class, [
+        'Sylius\MultiStorePlugin\CustomerPools\Domain\Model\CustomerPoolAwareTrait' => [
+            [
+                'traitMethod' => '__construct',
+                'newMethodName' => 'initializeSomething',
+                'visibility' => Class_::MODIFIER_PRIVATE,
+            ],
+        ],
+    ]);
+};
+
+
+```
+
+↓
+
+```diff
+use Sylius\Component\Core\Model\Channel as BaseChannel;
+
+class Channel extends BaseChannel
+{
+-    use \Sylius\MultiStorePlugin\CustomerPools\Domain\Model\CustomerPoolAwareTrait;
++    use \Sylius\MultiStorePlugin\CustomerPools\Domain\Model\CustomerPoolAwareTrait {
++        __construct as private initializeSomething;
++    }
 }
 ```

@@ -1,4 +1,4 @@
-# 3 Rules Overview
+# 4 Rules Overview
 
 ## AddInterfaceToClassExtendingTypeRector
 
@@ -65,6 +65,48 @@ use Sylius\Component\Core\Model\Channel as BaseChannel;
 class Channel extends BaseChannel
 {
 +    use \Sylius\MultiStorePlugin\CustomerPools\Domain\Model\CustomerPoolAwareTrait;
+}
+```
+
+## AddMethodCallToConstructorForClassesUsingTraitRector
+
+Adds given method calls to constructor for classes using given trait
+
+:wrench: **configure it!**
+
+- class: [`Sylius\SyliusRector\Rector\Class_\AddMethodCallToConstructorForClassesUsingTraitRector`](../src/Rector/Class_/AddMethodCallToConstructorForClassesUsingTraitRector.php)
+
+```php
+use Rector\Config\RectorConfig;
+use Sylius\SyliusRector\Rector\Class_\AddTraitToClassExtendingTypeRector;
+
+return static function (RectorConfig $rectorConfig): void {
+    $rectorConfig->ruleWithConfiguration(AddMethodCallToConstructorForClassesUsingTraitRector::class, [
+        'Sylius\MultiStorePlugin\CustomerPools\Domain\Model\CustomerPoolAwareTrait' => [
+            [
+                'variableName' => 'this',
+                'method' => 'initializeSomething',
+                'arguments' => [],
+            ],
+        ],
+    ]);
+};
+
+
+```
+
+↓
+
+```diff
+use Sylius\Component\Core\Model\Channel as BaseChannel;
+
+class Channel extends BaseChannel
+{
+    use \Sylius\MultiStorePlugin\CustomerPools\Domain\Model\CustomerPoolAwareTrait;
+    public function __construct()
+    {
++        $this->initializeSomething();
+    }
 }
 ```
 

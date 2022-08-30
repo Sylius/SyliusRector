@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Sylius\SyliusRector\Rector\Class_;
@@ -16,14 +17,12 @@ use Rector\Core\NodeManipulator\ClassInsertManipulator;
 use Rector\Core\NodeManipulator\ClassManipulator;
 use Rector\Core\Rector\AbstractRector;
 use Rector\Core\ValueObject\MethodName;
-use Sylius\SyliusRector\NodeManipulator\ClassInterfaceManipulator;
 use Symplify\RuleDocGenerator\Exception\PoorDocumentationException;
 use Symplify\RuleDocGenerator\ValueObject\CodeSample\CodeSample;
 use Symplify\RuleDocGenerator\ValueObject\RuleDefinition;
-use function RectorPrefix202208\dump;
 
 /**
- * @see \Sylius\SyliusRector\Tests\Rector\Class_\AddMethodCallToConstructor\AddMethodCallToConstructorTest
+ * @see \Sylius\SyliusRector\Tests\Rector\Class_\AddMethodCallToConstructorForClassesUsingTrait\AddMethodCallToConstructorForClassesUsingTraitTest
  */
 final class AddMethodCallToConstructorForClassesUsingTraitRector extends AbstractRector implements ConfigurableRectorInterface
 {
@@ -46,17 +45,23 @@ final class AddMethodCallToConstructorForClassesUsingTraitRector extends Abstrac
             [
                 new CodeSample(
                     <<<CODE_SAMPLE
-                use Sylius\Component\Channel\Model\Channel as BaseChannel;
-                
+                use Sylius\Component\Core\Model\Channel as BaseChannel;
+
                 class Channel extends BaseChannel
                 {
+                    use \Sylius\MultiStorePlugin\CustomerPools\Domain\Model\CustomerPoolAwareTrait;
                 }
                 CODE_SAMPLE,
                     <<<CODE_SAMPLE
-                use Sylius\Component\Channel\Model\Channel as BaseChannel;
-                
-                class Channel extends BaseChannel implements \Sylius\MultiStorePlugin\BusinessUnits\Domain\Model\ChannelInterface
+                use Sylius\Component\Core\Model\Channel as BaseChannel;
+
+                class Channel extends BaseChannel
                 {
+                    use \Sylius\MultiStorePlugin\CustomerPools\Domain\Model\CustomerPoolAwareTrait;
+                    public function __construct()
+                    {
+                        \$this->initializeSomething();
+                    }
                 }
                 CODE_SAMPLE
                 ),
@@ -83,9 +88,9 @@ final class AddMethodCallToConstructorForClassesUsingTraitRector extends Abstrac
         $newConstructorStmts = [];
 
         foreach ($this->configuration as $structureName => $methodCallConfiguration) {
-
             if (trait_exists($structureName)) {
                 $newConstructorStmts = array_merge($newConstructorStmts, $this->processTrait($node, $structureName, $methodCallConfiguration));
+
                 continue;
             }
 

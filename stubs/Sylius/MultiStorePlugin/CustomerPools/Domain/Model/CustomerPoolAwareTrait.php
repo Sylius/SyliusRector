@@ -9,5 +9,4 @@ if (trait_exists('Sylius\MultiStorePlugin\CustomerPools\Domain\Model\CustomerPoo
 
 trait CustomerPoolAwareTrait
 {
-
 }

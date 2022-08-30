@@ -79,15 +79,12 @@ Adds given method calls to constructor for classes using given trait
 ```php
 use Rector\Config\RectorConfig;
 use Sylius\SyliusRector\Rector\Class_\AddTraitToClassExtendingTypeRector;
+use Sylius\SyliusRector\Rector\Dto\AddMethodCallToConstructorForClassesUsingTrait;
 
 return static function (RectorConfig $rectorConfig): void {
     $rectorConfig->ruleWithConfiguration(AddMethodCallToConstructorForClassesUsingTraitRector::class, [
         'Sylius\MultiStorePlugin\CustomerPools\Domain\Model\CustomerPoolAwareTrait' => [
-            [
-                'variableName' => 'this',
-                'method' => 'initializeSomething',
-                'arguments' => [],
-            ],
+            new AddMethodCallToConstructorForClassesUsingTrait('this', 'initializeSomething'),
         ],
     ]);
 };

@@ -17,6 +17,7 @@ use Rector\Core\NodeManipulator\ClassInsertManipulator;
 use Rector\Core\NodeManipulator\ClassManipulator;
 use Rector\Core\Rector\AbstractRector;
 use Rector\Core\ValueObject\MethodName;
+use Sylius\SyliusRector\Rector\Dto\AddMethodCallToConstructorForClassesUsingTrait;
 use Symplify\RuleDocGenerator\Exception\PoorDocumentationException;
 use Symplify\RuleDocGenerator\ValueObject\CodeSample\CodeSample;
 use Symplify\RuleDocGenerator\ValueObject\RuleDefinition;
@@ -116,7 +117,7 @@ final class AddMethodCallToConstructorForClassesUsingTraitRector extends Abstrac
     }
 
     /**
-     * @param array<array{"variableName": string, "method": string, "arguments": array<string>}> $methodsCallsConfiguration
+     * @param array<AddMethodCallToConstructorForClassesUsingTrait> $methodsCallsConfiguration
      * @return array<Node>
      */
     private function processTrait(Class_ $node, string $traitName, array $methodsCallsConfiguration): array
@@ -129,9 +130,9 @@ final class AddMethodCallToConstructorForClassesUsingTraitRector extends Abstrac
 
         foreach ($methodsCallsConfiguration as $methodCallConfiguration) {
             $methodCall = $this->nodeFactory->createMethodCall(
-                $methodCallConfiguration['variableName'],
-                $methodCallConfiguration['method'],
-                $methodCallConfiguration['arguments']
+                $methodCallConfiguration->getVariable(),
+                $methodCallConfiguration->getMethod(),
+                $methodCallConfiguration->getArguments(),
             );
 
             $nodes[] = new Expression($methodCall);

@@ -18,7 +18,14 @@ use Sylius\Component\Core\Model\ProductVariant as BaseProductVariant;
 
 class ProductVariant extends BaseProductVariant implements \Sylius\MultiSourceInventoryPlugin\Domain\Model\ProductVariantInterface
 {
-    use \Sylius\MultiSourceInventoryPlugin\Domain\Model\InventorySourceStocksAwareTrait;
+    use \Sylius\MultiSourceInventoryPlugin\Domain\Model\InventorySourceStocksAwareTrait {
+        __construct as private initializeInventorySourceStocksTrait;
+    }
+    public function __construct()
+    {
+        parent::__construct();
+        $this->initializeInventorySourceStocksTrait();
+    }
 }
 
 ?>

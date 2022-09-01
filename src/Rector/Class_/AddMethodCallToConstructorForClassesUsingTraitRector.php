@@ -95,9 +95,13 @@ final class AddMethodCallToConstructorForClassesUsingTraitRector extends Abstrac
                 continue;
             }
 
-            throw new \Exception();
+            throw new \Exception('Trait not found: ' . $structureName);
         }
 
+
+        if (count($newConstructorStmts) === 0) {
+            return $node;
+        }
 
         $constructor = $this->getOrCreateConstructorMethod($node);
 

@@ -18,8 +18,15 @@ use Sylius\Component\Core\Model\AdminUser as BaseAdminUser;
 
 class AdminUser extends BaseAdminUser implements \Sylius\PlusRbacPlugin\Domain\Model\AdminUserInterface
 {
-    use \Sylius\PlusRbacPlugin\Domain\Model\RoleableTrait;
+    use \Sylius\PlusRbacPlugin\Domain\Model\RoleableTrait {
+        __construct as private initializeRoleableTrait;
+    }
     use \Sylius\PlusRbacPlugin\Domain\Model\ToggleablePermissionCheckerTrait;
+    public function __construct()
+    {
+        parent::__construct();
+        $this->initializeRoleableTrait();
+    }
 }
 
 ?>

@@ -26,6 +26,8 @@ return static function(RectorConfig $rectorConfig): void {
         'Sylius\Plus\BusinessUnits' => 'Sylius\MultiStorePlugin\BusinessUnits',
         'Sylius\Plus\ChannelAdmin' => 'Sylius\MultiStorePlugin\ChannelAdmin',
         'Sylius\Plus\CustomerPools' => 'Sylius\MultiStorePlugin\CustomerPools',
+        'Sylius\Plus\Entity\LastLoginIpAwareInterface' => 'Sylius\MultiStorePlugin\ChannelAdmin\Domain\Model\LastLoginIpAwareInterface',
+        'Sylius\Plus\Entity\LastLoginIpAwareTrait' => 'Sylius\MultiStorePlugin\ChannelAdmin\Domain\Model\LastLoginIpAwareTrait',
         'Sylius\Plus\Inventory' => 'Sylius\MultiSourceInventoryPlugin',
         'Sylius\Plus\Loyalty' => 'Sylius\LoyaltyPlugin',
         'Sylius\Plus\PartialShipping' => 'Sylius\CustomerServicePlugin',

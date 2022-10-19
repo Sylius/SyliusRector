@@ -10,8 +10,7 @@ Starting with Sylius-Standard 1.12 and above, we are providing a basic configura
 
 Then, when you meet the minimal requirements, run the following commands:
 ```bash
-composer require rector/rector --dev
-composer require sylius/sylius-rector
+composer require sylius/sylius-rector --dev
 ```
 
 Finally, create `<project_root>/rector.php` file with the following content:

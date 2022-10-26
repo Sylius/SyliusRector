@@ -28,7 +28,7 @@ return static function(RectorConfig $rectorConfig): void {
         'Sylius\Plus\CustomerPools' => 'Sylius\MultiStorePlugin\CustomerPools',
         'Sylius\Plus\Inventory' => 'Sylius\MultiSourceInventoryPlugin',
         'Sylius\Plus\Loyalty' => 'Sylius\LoyaltyPlugin',
-        'Sylius\Plus\PartialShipping' => 'Sylius\CustomerServicePlugin',
+        'Sylius\Plus\PartialShipping' => 'Sylius\CustomerServicePlugin\PartialShipment',
         'Sylius\Plus\Rbac' => 'Sylius\PlusRbacPlugin',
         'Sylius\Plus\Returns' => 'Sylius\ReturnPlugin',
     ]);

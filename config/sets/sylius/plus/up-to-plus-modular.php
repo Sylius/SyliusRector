@@ -30,7 +30,7 @@ return static function(RectorConfig $rectorConfig): void {
         'Sylius\Plus\Entity\LastLoginIpAwareTrait' => 'Sylius\MultiStorePlugin\ChannelAdmin\Domain\Model\LastLoginIpAwareTrait',
         'Sylius\Plus\Inventory' => 'Sylius\MultiSourceInventoryPlugin',
         'Sylius\Plus\Loyalty' => 'Sylius\LoyaltyPlugin',
-        'Sylius\Plus\PartialShipping' => 'Sylius\CustomerServicePlugin',
+        'Sylius\Plus\PartialShipping' => 'Sylius\CustomerServicePlugin\PartialShipment',
         'Sylius\Plus\Rbac' => 'Sylius\PlusRbacPlugin',
         'Sylius\Plus\Returns' => 'Sylius\ReturnPlugin',
     ]);

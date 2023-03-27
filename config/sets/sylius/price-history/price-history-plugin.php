@@ -17,7 +17,7 @@ return static function (RectorConfig $rectorConfig): void {
     ]);
     $rectorConfig->ruleWithConfiguration(AddTraitToClassExtendingTypeRector::class, [
         'Sylius\Component\Core\Model\Channel' => [
-            'Sylius\PriceHistoryPlugin\Domain\Model\LowestPriceForDiscountedProductsAwareTrait',
+            'Sylius\PriceHistoryPlugin\Domain\Model\ChannelPriceHistoryConfigAwareTrait',
         ],
         'Sylius\Component\Core\Model\ChannelPricing' => [
             'Sylius\PriceHistoryPlugin\Domain\Model\LowestPriceBeforeDiscountAwareTrait',

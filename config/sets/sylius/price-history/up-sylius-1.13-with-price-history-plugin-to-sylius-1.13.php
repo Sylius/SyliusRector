@@ -34,7 +34,7 @@ return static function (RectorConfig $rectorConfig): void {
         'Sylius\PriceHistoryPlugin\Infrastructure\Event' => 'Sylius\Bundle\CoreBundle\PriceHistory\Event',
         'Sylius\PriceHistoryPlugin\Infrastructure\Event\OldChannelPricingLogEntriesEvents' => 'Sylius\Bundle\CoreBundle\PriceHistory\Event\OldChannelPricingLogEntriesEvents',
         'Sylius\PriceHistoryPlugin\Infrastructure\EventListener' => 'Sylius\Bundle\CoreBundle\PriceHistory\EventListener',
-        'Sylius\PriceHistoryPlugin\Infrastructure\EventSubscriber' => 'Sylius\Bundle\CoreBundle\PriceHistory\EventSubscriber',
+        'Sylius\PriceHistoryPlugin\Infrastructure\EventSubscriber\ChannelPricingLogEntryEventSubscriber' => 'Sylius\Bundle\CoreBundle\PriceHistory\EventListener\ChannelPricingLogEntryEventListener',
         'Sylius\PriceHistoryPlugin\Infrastructure\Form' => 'Sylius\Bundle\CoreBundle\Form',
         'Sylius\PriceHistoryPlugin\Infrastructure\Provider' => 'Sylius\Component\Core\Provider',
         'Sylius\PriceHistoryPlugin\Infrastructure\Remover\ChannelPricingLogEntriesRemover' => 'Sylius\Bundle\CoreBundle\PriceHistory\Remover\ChannelPricingLogEntriesRemover',

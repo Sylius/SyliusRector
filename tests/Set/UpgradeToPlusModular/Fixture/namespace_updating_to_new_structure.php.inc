@@ -2,9 +2,9 @@
 
 namespace Sylius\SyliusRector\Tests\Rector\Class_\AddInterfaceToClassExtendingType\Fixture;
 
-use Sylius\Plus\Returns\ACMEService;
+use Sylius\Plus\PartialShipping\Application\Creator\PartialShipmentCreator;
 
-class SomeClass
+class SomeClass extends PartialShipmentCreator
 {
 }
 
@@ -14,9 +14,9 @@ class SomeClass
 
 namespace Sylius\SyliusRector\Tests\Rector\Class_\AddInterfaceToClassExtendingType\Fixture;
 
-use Sylius\ReturnPlugin\ACMEService;
+use Sylius\CustomerServicePlugin\PartialShipment\Application\Creator\PartialShipmentCreator;
 
-class SomeClass
+class SomeClass extends PartialShipmentCreator
 {
 }
 

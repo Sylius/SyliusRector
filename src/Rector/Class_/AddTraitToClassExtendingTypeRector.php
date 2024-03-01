@@ -6,11 +6,11 @@ namespace Sylius\SyliusRector\Rector\Class_;
 
 use PhpParser\Node;
 use PhpParser\Node\Stmt\Class_;
-use Rector\Core\Contract\Rector\ConfigurableRectorInterface;
-use Rector\Core\NodeManipulator\ClassInsertManipulator;
-use Rector\Core\NodeManipulator\ClassManipulator;
-use Rector\Core\Rector\AbstractRector;
+use Rector\Contract\Rector\ConfigurableRectorInterface;
+use Rector\NodeManipulator\ClassManipulator;
+use Rector\Rector\AbstractRector;
 use Sylius\SyliusRector\NodeManipulator\ClassInheritanceManipulator;
+use Sylius\SyliusRector\NodeManipulator\TraitManipulator;
 use Symplify\RuleDocGenerator\Exception\PoorDocumentationException;
 use Symplify\RuleDocGenerator\ValueObject\CodeSample\CodeSample;
 use Symplify\RuleDocGenerator\ValueObject\RuleDefinition;
@@ -25,7 +25,7 @@ final class AddTraitToClassExtendingTypeRector extends AbstractRector implements
     public function __construct(
         private ClassInheritanceManipulator $classInheritanceManipulator,
         private ClassManipulator $classManipulator,
-        private ClassInsertManipulator $classInsertManipulator,
+        private TraitManipulator $traitManipulator,
     ){
     }
 
@@ -40,14 +40,14 @@ final class AddTraitToClassExtendingTypeRector extends AbstractRector implements
                 new CodeSample(
                 <<<CODE_SAMPLE
                 use Sylius\Component\Channel\Model\Channel as BaseChannel;
-                
+
                 class Channel extends BaseChannel
                 {
                 }
                 CODE_SAMPLE,
                 <<<CODE_SAMPLE
                 use Sylius\Component\Channel\Model\Channel as BaseChannel;
-                
+
                 class Channel extends BaseChannel implements \Sylius\MultiStorePlugin\BusinessUnits\Domain\Model\ChannelInterface
                 {
                 }
@@ -82,7 +82,7 @@ final class AddTraitToClassExtendingTypeRector extends AbstractRector implements
                     continue;
                 }
 
-                $this->classInsertManipulator->addAsFirstTrait($node, $trait);
+                $this->traitManipulator->addAsFirstTrait($node, $trait);
             }
         }
 

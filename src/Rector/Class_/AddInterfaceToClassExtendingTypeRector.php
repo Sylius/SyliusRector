@@ -6,8 +6,8 @@ namespace Sylius\SyliusRector\Rector\Class_;
 
 use PhpParser\Node;
 use PhpParser\Node\Stmt\Class_;
-use Rector\Core\Contract\Rector\ConfigurableRectorInterface;
-use Rector\Core\Rector\AbstractRector;
+use Rector\Contract\Rector\ConfigurableRectorInterface;
+use Rector\Rector\AbstractRector;
 use Sylius\SyliusRector\NodeManipulator\ClassInheritanceManipulator;
 use Sylius\SyliusRector\NodeManipulator\ClassInterfaceManipulator;
 use Symplify\RuleDocGenerator\Exception\PoorDocumentationException;
@@ -38,14 +38,14 @@ final class AddInterfaceToClassExtendingTypeRector extends AbstractRector implem
                 new CodeSample(
                     <<<CODE_SAMPLE
                     use Sylius\Component\Channel\Model\Channel as BaseChannel;
-                    
+
                     class Channel extends BaseChannel
                     {
                     }
                     CODE_SAMPLE,
                     <<<CODE_SAMPLE
                     use Sylius\Component\Channel\Model\Channel as BaseChannel;
-                    
+
                     class Channel extends BaseChannel implements \Sylius\MultiStorePlugin\BusinessUnits\Domain\Model\ChannelInterface
                     {
                     }

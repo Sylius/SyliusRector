@@ -11,12 +11,14 @@ use PhpParser\Node\Identifier;
 use PhpParser\Node\Stmt\Class_;
 use PhpParser\Node\Stmt\ClassMethod;
 use PhpParser\Node\Stmt\Expression;
-use Rector\Compatibility\NodeFactory\ConstructorClassMethodFactory;
-use Rector\Core\Contract\Rector\ConfigurableRectorInterface;
-use Rector\Core\NodeManipulator\ClassInsertManipulator;
-use Rector\Core\NodeManipulator\ClassManipulator;
-use Rector\Core\Rector\AbstractRector;
-use Rector\Core\ValueObject\MethodName;
+use Rector\Contract\Rector\ConfigurableRectorInterface;
+use Rector\Exception\ShouldNotHappenException;
+use Rector\NodeManipulator\ClassInsertManipulator;
+use Rector\NodeManipulator\ClassManipulator;
+use Rector\Rector\AbstractRector;
+use Rector\ValueObject\MethodName;
+use Sylius\SyliusRector\Node\NodeFactory;
+use Sylius\SyliusRector\NodeFactory\ConstructorClassMethodFactory;
 use Sylius\SyliusRector\Rector\Dto\AddMethodCallToConstructorForClassesUsingTrait;
 use Symplify\RuleDocGenerator\Exception\PoorDocumentationException;
 use Symplify\RuleDocGenerator\ValueObject\CodeSample\CodeSample;
@@ -33,6 +35,7 @@ final class AddMethodCallToConstructorForClassesUsingTraitRector extends Abstrac
         private ConstructorClassMethodFactory $constructorClassMethodFactory,
         private ClassInsertManipulator $classInsertManipulator,
         private ClassManipulator $classManipulator,
+        private NodeFactory $syliusNodeFactory,
     ) {
     }
 
@@ -144,13 +147,16 @@ final class AddMethodCallToConstructorForClassesUsingTraitRector extends Abstrac
         return $nodes;
     }
 
+    /**
+     * @throws ShouldNotHappenException
+     */
     private function getOrCreateConstructorMethod(Class_ $node): ClassMethod
     {
         $constructor = $node->getMethod(MethodName::CONSTRUCT);
 
         if (null === $constructor) {
             $constructor = $this->constructorClassMethodFactory->createConstructorClassMethod([], []);
-            $constructor->stmts = [new Expression($this->nodeFactory->createParentConstructWithParams([]))];
+            $constructor->stmts = [new Expression($this->syliusNodeFactory->createParentConstructWithParams([]))];
             $this->classInsertManipulator->addAsFirstMethod($node, $constructor);
         }
 

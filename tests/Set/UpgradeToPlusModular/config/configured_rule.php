@@ -8,4 +8,5 @@ use Sylius\SyliusRector\Set\SyliusPlus;
 return static function (RectorConfig $rectorConfig): void {
     $rectorConfig->import(__DIR__ . '/../../../../config/config.php');
     $rectorConfig->sets([SyliusPlus::UPGRADE_TO_MODULAR]);
+    $rectorConfig->importNames();
 };

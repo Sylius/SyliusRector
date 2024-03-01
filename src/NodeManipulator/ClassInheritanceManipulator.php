@@ -6,7 +6,7 @@ namespace Sylius\SyliusRector\NodeManipulator;
 
 use PhpParser\Node\Stmt\Class_;
 use PHPStan\Reflection\ClassReflection;
-use Rector\Core\Reflection\ReflectionResolver;
+use Rector\Reflection\ReflectionResolver;
 
 final class ClassInheritanceManipulator
 {

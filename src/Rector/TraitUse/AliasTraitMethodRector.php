@@ -7,8 +7,8 @@ namespace Sylius\SyliusRector\Rector\TraitUse;
 use PhpParser\Node;
 use PhpParser\Node\Stmt\TraitUse;
 use PhpParser\Node\Stmt\TraitUseAdaptation\Alias;
-use Rector\Core\Contract\Rector\ConfigurableRectorInterface;
-use Rector\Core\Rector\AbstractRector;
+use Rector\Contract\Rector\ConfigurableRectorInterface;
+use Rector\Rector\AbstractRector;
 use Sylius\SyliusRector\NodeManipulator\TraitManipulator;
 use Symplify\RuleDocGenerator\Exception\PoorDocumentationException;
 use Symplify\RuleDocGenerator\ValueObject\CodeSample\CodeSample;
@@ -37,7 +37,7 @@ final class AliasTraitMethodRector extends AbstractRector implements Configurabl
                 new CodeSample(
                     <<<CODE_SAMPLE
                 use Sylius\Component\Channel\Model\Channel as BaseChannel;
-                
+
                 class Channel extends BaseChannel
                 {
                     use SomeTrait;
@@ -45,7 +45,7 @@ final class AliasTraitMethodRector extends AbstractRector implements Configurabl
                 CODE_SAMPLE,
                     <<<CODE_SAMPLE
                 use Sylius\Component\Channel\Model\Channel as BaseChannel;
-                
+
                 class Channel extends BaseChannel implements \Sylius\MultiStorePlugin\BusinessUnits\Domain\Model\ChannelInterface
                 {
                     use SomeTrait {

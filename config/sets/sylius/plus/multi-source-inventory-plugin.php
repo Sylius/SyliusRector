@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 use PhpParser\Node\Stmt\Class_;
 use Rector\Config\RectorConfig;
-use Rector\DependencyInjection\Rector\ClassMethod\AddMethodParentCallRector;
 use Sylius\SyliusRector\Rector\Class_\AddInterfaceToClassExtendingTypeRector;
 use Sylius\SyliusRector\Rector\Class_\AddMethodCallToConstructorForClassesUsingTraitRector;
 use Sylius\SyliusRector\Rector\Class_\AddTraitToClassExtendingTypeRector;

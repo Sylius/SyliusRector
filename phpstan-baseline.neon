@@ -1,0 +1,36 @@
+parameters:
+	ignoreErrors:
+		-
+			message: "#^Parameter \\#1 \\$node \\(PhpParser\\\\Node\\\\Stmt\\\\Class_\\) of method Sylius\\\\SyliusRector\\\\Rector\\\\Class_\\\\AddInterfaceToClassExtendingTypeRector\\:\\:refactor\\(\\) should be contravariant with parameter \\$node \\(PhpParser\\\\Node\\) of method Rector\\\\Contract\\\\Rector\\\\RectorInterface\\:\\:refactor\\(\\)$#"
+			count: 3
+			path: src/Rector/Class_/AddInterfaceToClassExtendingTypeRector.php
+
+		-
+			message: "#^Method Sylius\\\\SyliusRector\\\\Rector\\\\Class_\\\\AddMethodCallToConstructorForClassesUsingTraitRector\\:\\:refactor\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Rector/Class_/AddMethodCallToConstructorForClassesUsingTraitRector.php
+
+		-
+			message: "#^Parameter \\#1 \\$node \\(PhpParser\\\\Node\\\\Stmt\\\\Class_\\) of method Sylius\\\\SyliusRector\\\\Rector\\\\Class_\\\\AddMethodCallToConstructorForClassesUsingTraitRector\\:\\:refactor\\(\\) should be contravariant with parameter \\$node \\(PhpParser\\\\Node\\) of method Rector\\\\Contract\\\\Rector\\\\RectorInterface\\:\\:refactor\\(\\)$#"
+			count: 3
+			path: src/Rector/Class_/AddMethodCallToConstructorForClassesUsingTraitRector.php
+
+		-
+			message: "#^Return type \\(array\\|PhpParser\\\\Node\\|null\\) of method Sylius\\\\SyliusRector\\\\Rector\\\\Class_\\\\AddMethodCallToConstructorForClassesUsingTraitRector\\:\\:refactor\\(\\) should be covariant with return type \\(1\\|2\\|3\\|4\\|array\\<PhpParser\\\\Node\\>\\|PhpParser\\\\Node\\|null\\) of method Rector\\\\Contract\\\\Rector\\\\RectorInterface\\:\\:refactor\\(\\)$#"
+			count: 3
+			path: src/Rector/Class_/AddMethodCallToConstructorForClassesUsingTraitRector.php
+
+		-
+			message: "#^Method Sylius\\\\SyliusRector\\\\Rector\\\\Class_\\\\AddTraitToClassExtendingTypeRector\\:\\:refactor\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Rector/Class_/AddTraitToClassExtendingTypeRector.php
+
+		-
+			message: "#^Parameter \\#1 \\$node \\(PhpParser\\\\Node\\\\Stmt\\\\Class_\\) of method Sylius\\\\SyliusRector\\\\Rector\\\\Class_\\\\AddTraitToClassExtendingTypeRector\\:\\:refactor\\(\\) should be contravariant with parameter \\$node \\(PhpParser\\\\Node\\) of method Rector\\\\Contract\\\\Rector\\\\RectorInterface\\:\\:refactor\\(\\)$#"
+			count: 3
+			path: src/Rector/Class_/AddTraitToClassExtendingTypeRector.php
+
+		-
+			message: "#^Return type \\(array\\|PhpParser\\\\Node\\|null\\) of method Sylius\\\\SyliusRector\\\\Rector\\\\Class_\\\\AddTraitToClassExtendingTypeRector\\:\\:refactor\\(\\) should be covariant with return type \\(1\\|2\\|3\\|4\\|array\\<PhpParser\\\\Node\\>\\|PhpParser\\\\Node\\|null\\) of method Rector\\\\Contract\\\\Rector\\\\RectorInterface\\:\\:refactor\\(\\)$#"
+			count: 3
+			path: src/Rector/Class_/AddTraitToClassExtendingTypeRector.php

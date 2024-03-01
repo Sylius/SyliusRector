@@ -14,7 +14,6 @@
         "symplify/phpstan-extensions": "^10.0|^11.0",
         "symplify/easy-coding-standard": "^10.0|^11.0",
         "symplify/rule-doc-generator": "^10.0|^11.0",
-        "rector/phpstan-rules": "^0.5",
         "phpstan/extension-installer": "^1.1",
         "phpstan/phpstan-strict-rules": "^1.2",
         "phpstan/phpstan-webmozart-assert": "^1.1",

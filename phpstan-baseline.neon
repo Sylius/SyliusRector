@@ -6,6 +6,11 @@ parameters:
 			path: src/Rector/Class_/AddInterfaceToClassExtendingTypeRector.php
 
 		-
+			message: "#^Property Sylius\\\\SyliusRector\\\\Rector\\\\Class_\\\\AddInterfaceToClassExtendingTypeRector\\:\\:\\$addInterfaceToClassExtendingTypeRectorConfig type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Rector/Class_/AddInterfaceToClassExtendingTypeRector.php
+
+		-
 			message: "#^Method Sylius\\\\SyliusRector\\\\Rector\\\\Class_\\\\AddMethodCallToConstructorForClassesUsingTraitRector\\:\\:refactor\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: src/Rector/Class_/AddMethodCallToConstructorForClassesUsingTraitRector.php
@@ -13,6 +18,11 @@ parameters:
 		-
 			message: "#^Parameter \\#1 \\$node \\(PhpParser\\\\Node\\\\Stmt\\\\Class_\\) of method Sylius\\\\SyliusRector\\\\Rector\\\\Class_\\\\AddMethodCallToConstructorForClassesUsingTraitRector\\:\\:refactor\\(\\) should be contravariant with parameter \\$node \\(PhpParser\\\\Node\\) of method Rector\\\\Contract\\\\Rector\\\\RectorInterface\\:\\:refactor\\(\\)$#"
 			count: 3
+			path: src/Rector/Class_/AddMethodCallToConstructorForClassesUsingTraitRector.php
+
+		-
+			message: "#^Property Sylius\\\\SyliusRector\\\\Rector\\\\Class_\\\\AddMethodCallToConstructorForClassesUsingTraitRector\\:\\:\\$configuration type has no value type specified in iterable type array\\.$#"
+			count: 1
 			path: src/Rector/Class_/AddMethodCallToConstructorForClassesUsingTraitRector.php
 
 		-
@@ -31,6 +41,16 @@ parameters:
 			path: src/Rector/Class_/AddTraitToClassExtendingTypeRector.php
 
 		-
+			message: "#^Property Sylius\\\\SyliusRector\\\\Rector\\\\Class_\\\\AddTraitToClassExtendingTypeRector\\:\\:\\$addTraitToClassExtendingTypeRectorConfig type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Rector/Class_/AddTraitToClassExtendingTypeRector.php
+
+		-
 			message: "#^Return type \\(array\\|PhpParser\\\\Node\\|null\\) of method Sylius\\\\SyliusRector\\\\Rector\\\\Class_\\\\AddTraitToClassExtendingTypeRector\\:\\:refactor\\(\\) should be covariant with return type \\(1\\|2\\|3\\|4\\|array\\<PhpParser\\\\Node\\>\\|PhpParser\\\\Node\\|null\\) of method Rector\\\\Contract\\\\Rector\\\\RectorInterface\\:\\:refactor\\(\\)$#"
 			count: 3
 			path: src/Rector/Class_/AddTraitToClassExtendingTypeRector.php
+
+		-
+			message: "#^Property Sylius\\\\SyliusRector\\\\Rector\\\\TraitUse\\\\AliasTraitMethodRector\\:\\:\\$aliasTraitMethodRectorConfig type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Rector/TraitUse/AliasTraitMethodRector.php

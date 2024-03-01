@@ -1,3 +1,6 @@
+includes:
+    - phpstan-baseline.neon
+
 parameters:
     level: 7
 
@@ -14,29 +17,3 @@ parameters:
         - *Source/*
 
     reportUnmatchedIgnoredErrors: false
-
-    ignoreErrors:
-        # bug
-        - '#Method Rector\\PHPUnit\\Rector\\Class_\\AddSeeTestAnnotationRector\:\:removeNonExistingClassSeeAnnotation\(\) has parameter \$phpDocInfo with generic class Rector\\BetterPhpDocParser\\PhpDocInfo\\PhpDocInfo but does not specify its types\: TNode#'
-        - '#Method Rector\\PHPUnit\\Rector\\Class_\\AddSeeTestAnnotationRector\:\:hasAlreadySeeAnnotation\(\) has parameter \$phpDocInfo with generic class Rector\\BetterPhpDocParser\\PhpDocInfo\\PhpDocInfo but does not specify its types\: TNode#'
-
-        # not sure
-        - '#Parameter \#1 \$expr of class PhpParser\\Node\\Stmt\\Expression constructor expects PhpParser\\Node\\Expr, PhpParser\\Node\\Expr\|PhpParser\\Node\\Stmt given#'
-
-        # phpstan false positive
-        - '#Parameter \#1 \$className of method Rector\\Core\\PhpParser\\AstResolver\:\:resolveClassMethod\(\) expects class\-string, string given#'
-
-        - '#PhpParser\\Node\\Arg\|PhpParser\\Node\\VariadicPlaceholder\:\:\$value#'
-        - '#array<PhpParser\\Node\\Arg\|PhpParser\\Node\\VariadicPlaceholder\> given#'
-        - '#array<int, PhpParser\\Node\\Arg\|PhpParser\\Node\\VariadicPlaceholder\> given#'
-        - '#PhpParser\\Node\\VariadicPlaceholder given#'
-        - '#(.*?)PhpParser\\Node\\Arg\|PhpParser\\Node\\VariadicPlaceholder#'
-
-        # rector co-variant
-        - '#Parameter \#1 \$node (.*?) of method Rector\\(.*?)\(\) should be contravariant with parameter \$node \(PhpParser\\Node\) of method Rector\\Core\\Contract\\Rector\\PhpRectorInterface\:\:refactor\(\)#'
-        - '#Parameter \#1 \$node \(PhpParser\\Node\\Expr\\MethodCall\|PhpParser\\Node\\Expr\\StaticCall\) of method Rector\\PHPUnit\\Rector\\StaticCall\\GetMockRector\:\:refactorWithScope\(\) should be contravariant with parameter \$node \(PhpParser\\Node\) of method Rector\\Core\\Contract\\Rector\\ScopeAwarePhpRectorInterface\:\:refactorWithScope\(\)#'
-
-        - '#Cognitive complexity for "Rector\\PHPUnit\\Rector\\MethodCall\\DelegateExceptionArgumentsRector\:\:refactor\(\)" is 12, keep it under 10#'
-        - '#Class "Rector\\PHPUnit\\Rector\\MethodCall\\DelegateExceptionArgumentsRector" has invalid namespace category "MethodCall"\. Pick one of\: "StmtsAwareInterface"#'
-        - '#Parameter \#1 \$node \(PhpParser\\(.*?)\\Class_\) of method Sylius\\SyliusRector\\Rector\\(.*?)\(\) should be contravariant with parameter \$node \(PhpParser\\Node\) of method Rector\\Core\\Contract\\Rector\\PhpRectorInterface\:\:refactor\(\)#'
-        - '#Property Sylius\\SyliusRector\\Rector\\(\S+) type has no value type specified in iterable type array\.#'

@@ -45,7 +45,7 @@
     "extra": {
         "enable-patching": true,
         "branch-alias": {
-            "dev-main": "1.0-dev"
+            "dev-main": "2.0-dev"
         },
         "rector": {
             "includes": [

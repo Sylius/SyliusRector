@@ -7,7 +7,7 @@ namespace Sylius\SyliusRector\Tests\Set\SyliusPlus\LoyaltyPlugin;
 use Iterator;
 use Rector\Testing\PHPUnit\AbstractRectorTestCase;
 
-final class MultiStorePluginTest extends AbstractRectorTestCase
+final class LoyaltyPluginTest extends AbstractRectorTestCase
 {
     /**
      * @dataProvider provideData()

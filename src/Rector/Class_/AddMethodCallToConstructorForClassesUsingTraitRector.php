@@ -11,6 +11,7 @@ use PhpParser\Node\Identifier;
 use PhpParser\Node\Stmt\Class_;
 use PhpParser\Node\Stmt\ClassMethod;
 use PhpParser\Node\Stmt\Expression;
+use PhpParser\Node\Stmt\TraitUse;
 use Rector\Contract\Rector\ConfigurableRectorInterface;
 use Rector\Exception\ShouldNotHappenException;
 use Rector\NodeManipulator\ClassInsertManipulator;
@@ -154,13 +155,34 @@ final class AddMethodCallToConstructorForClassesUsingTraitRector extends Abstrac
     {
         $constructor = $node->getMethod(MethodName::CONSTRUCT);
 
-        if (null === $constructor) {
-            $constructor = $this->constructorClassMethodFactory->createConstructorClassMethod([], []);
-            $constructor->stmts = [new Expression($this->syliusNodeFactory->createParentConstructWithParams([]))];
-            $this->classInsertManipulator->addAsFirstMethod($node, $constructor);
+        if ($constructor !== null) {
+            return $constructor;
         }
 
+        $constructor = $this->constructorClassMethodFactory->createConstructorClassMethod([], []);
+        $constructor->stmts = [
+            new Expression($this->syliusNodeFactory->createParentConstructWithParams([]))
+        ];
+
+        $this->insertConstructorAfterTraits($node, $constructor);
+
         return $constructor;
+    }
+
+    private function insertConstructorAfterTraits(Class_ $node, ClassMethod $constructor): void
+    {
+        $traitUses = [];
+        $others = [];
+
+        foreach ($node->stmts as $stmt) {
+            if ($stmt instanceof TraitUse) {
+                $traitUses[] = $stmt;
+            } else {
+                $others[] = $stmt;
+            }
+        }
+
+        $node->stmts = array_merge($traitUses, [$constructor], $others);
     }
 
     private function isConstructMethodCallAlreadyExisting(ClassMethod $constructor, MethodCall $newMethodCall): bool

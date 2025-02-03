@@ -70,7 +70,7 @@ final class AddTraitToClassExtendingTypeRector extends AbstractRector implements
     /**
      * @param Class_ $node
      */
-    public function refactor(Node $node): Node|array|null
+    public function refactor(Node $node): Node
     {
         foreach ($this->addTraitToClassExtendingTypeRectorConfig as $className => $traits) {
             if (!$this->classInheritanceManipulator->isDerivative($node, $className)) {

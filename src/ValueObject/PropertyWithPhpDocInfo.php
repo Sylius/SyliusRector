@@ -37,6 +37,6 @@ final class PropertyWithPhpDocInfo
             throw new ShouldNotHappenException();
         }
 
-        return new ParamTagValueNode($varTagValueNode->type, false, '$' . $this->propertyName, '');
+        return new ParamTagValueNode($varTagValueNode->type, false, '$' . $this->propertyName, '', false);
     }
 }

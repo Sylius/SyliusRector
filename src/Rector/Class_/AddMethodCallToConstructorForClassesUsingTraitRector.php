@@ -34,7 +34,6 @@ final class AddMethodCallToConstructorForClassesUsingTraitRector extends Abstrac
 
     public function __construct(
         private ConstructorClassMethodFactory $constructorClassMethodFactory,
-        private ClassInsertManipulator $classInsertManipulator,
         private ClassManipulator $classManipulator,
         private NodeFactory $syliusNodeFactory,
     ) {
@@ -88,7 +87,7 @@ final class AddMethodCallToConstructorForClassesUsingTraitRector extends Abstrac
      * @param Class_ $node
      * @throws \Exception
      */
-    public function refactor(Node $node): Node|array|null
+    public function refactor(Node $node): Node
     {
         $newConstructorStmts = [];
 

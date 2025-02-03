@@ -68,7 +68,7 @@ final class AddInterfaceToClassExtendingTypeRector extends AbstractRector implem
     /**
      * @param Class_ $node
      */
-    public function refactor(Node $node): ?Node
+    public function refactor(Node $node): Node
     {
         foreach ($this->addInterfaceToClassExtendingTypeRectorConfig as $className => $interfaces) {
             if (!$this->classInheritanceManipulator->isDerivative($node, $className)) {

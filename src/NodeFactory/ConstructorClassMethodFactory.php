@@ -9,7 +9,6 @@ use PhpParser\Node\Stmt\Class_;
 use PhpParser\Node\Stmt\ClassMethod;
 use Rector\BetterPhpDocParser\PhpDocInfo\PhpDocInfoFactory;
 use Rector\DeadCode\PhpDoc\TagRemover\ParamTagRemover;
-use Rector\Exception\ShouldNotHappenException;
 use Rector\ValueObject\MethodName;
 use Sylius\SyliusRector\ValueObject\PropertyWithPhpDocInfo;
 
@@ -24,7 +23,6 @@ final class ConstructorClassMethodFactory
     /**
      * @param PropertyWithPhpDocInfo[] $requiredPropertiesWithPhpDocInfos
      * @param Param[] $params
-     * @throws ShouldNotHappenException
      */
     public function createConstructorClassMethod(array $requiredPropertiesWithPhpDocInfos, array $params): ClassMethod
     {

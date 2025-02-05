@@ -11,7 +11,6 @@ use Rector\NodeManipulator\ClassManipulator;
 use Rector\Rector\AbstractRector;
 use Sylius\SyliusRector\NodeManipulator\ClassInheritanceManipulator;
 use Sylius\SyliusRector\NodeManipulator\TraitManipulator;
-use Symplify\RuleDocGenerator\Exception\PoorDocumentationException;
 use Symplify\RuleDocGenerator\ValueObject\CodeSample\CodeSample;
 use Symplify\RuleDocGenerator\ValueObject\RuleDefinition;
 
@@ -26,26 +25,25 @@ final class AddTraitToClassExtendingTypeRector extends AbstractRector implements
         private ClassInheritanceManipulator $classInheritanceManipulator,
         private ClassManipulator $classManipulator,
         private TraitManipulator $traitManipulator,
-    ){
+    ) {
     }
 
-    /**
-     * @throws PoorDocumentationException
-     */
+
     public function getRuleDefinition(): RuleDefinition
     {
         return new RuleDefinition(
             'Adds the given set of traits to the classes extending the given type',
             [
                 new CodeSample(
-                <<<CODE_SAMPLE
+                    <<<CODE_SAMPLE
                 use Sylius\Component\Channel\Model\Channel as BaseChannel;
 
                 class Channel extends BaseChannel
                 {
                 }
-                CODE_SAMPLE,
-                <<<CODE_SAMPLE
+                CODE_SAMPLE
+                    ,
+                    <<<CODE_SAMPLE
                 use Sylius\Component\Channel\Model\Channel as BaseChannel;
 
                 class Channel extends BaseChannel implements \Sylius\MultiStorePlugin\BusinessUnits\Domain\Model\ChannelInterface
@@ -73,7 +71,7 @@ final class AddTraitToClassExtendingTypeRector extends AbstractRector implements
     public function refactor(Node $node): Node
     {
         foreach ($this->addTraitToClassExtendingTypeRectorConfig as $className => $traits) {
-            if (!$this->classInheritanceManipulator->isDerivative($node, $className)) {
+            if (! $this->classInheritanceManipulator->isDerivative($node, $className)) {
                 continue;
             }
 

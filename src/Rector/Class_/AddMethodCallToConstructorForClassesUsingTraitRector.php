@@ -13,15 +13,12 @@ use PhpParser\Node\Stmt\ClassMethod;
 use PhpParser\Node\Stmt\Expression;
 use PhpParser\Node\Stmt\TraitUse;
 use Rector\Contract\Rector\ConfigurableRectorInterface;
-use Rector\Exception\ShouldNotHappenException;
-use Rector\NodeManipulator\ClassInsertManipulator;
 use Rector\NodeManipulator\ClassManipulator;
 use Rector\Rector\AbstractRector;
 use Rector\ValueObject\MethodName;
 use Sylius\SyliusRector\Node\NodeFactory;
 use Sylius\SyliusRector\NodeFactory\ConstructorClassMethodFactory;
 use Sylius\SyliusRector\Rector\Dto\AddMethodCallToConstructorForClassesUsingTrait;
-use Symplify\RuleDocGenerator\Exception\PoorDocumentationException;
 use Symplify\RuleDocGenerator\ValueObject\CodeSample\CodeSample;
 use Symplify\RuleDocGenerator\ValueObject\RuleDefinition;
 
@@ -39,9 +36,7 @@ final class AddMethodCallToConstructorForClassesUsingTraitRector extends Abstrac
     ) {
     }
 
-    /**
-     * @throws PoorDocumentationException
-     */
+
     public function getRuleDefinition(): RuleDefinition
     {
         return new RuleDefinition(
@@ -55,7 +50,8 @@ final class AddMethodCallToConstructorForClassesUsingTraitRector extends Abstrac
                 {
                     use \Sylius\MultiStorePlugin\CustomerPools\Domain\Model\CustomerPoolAwareTrait;
                 }
-                CODE_SAMPLE,
+                CODE_SAMPLE
+                    ,
                     <<<CODE_SAMPLE
                 use Sylius\Component\Core\Model\Channel as BaseChannel;
 
@@ -85,7 +81,6 @@ final class AddMethodCallToConstructorForClassesUsingTraitRector extends Abstrac
 
     /**
      * @param Class_ $node
-     * @throws \Exception
      */
     public function refactor(Node $node): Node
     {
@@ -93,7 +88,10 @@ final class AddMethodCallToConstructorForClassesUsingTraitRector extends Abstrac
 
         foreach ($this->configuration as $structureName => $methodCallConfiguration) {
             if (trait_exists($structureName)) {
-                $newConstructorStmts = array_merge($newConstructorStmts, $this->processTrait($node, $structureName, $methodCallConfiguration));
+                $newConstructorStmts = array_merge(
+                    $newConstructorStmts,
+                    $this->processTrait($node, $structureName, $methodCallConfiguration)
+                );
 
                 continue;
             }
@@ -108,7 +106,7 @@ final class AddMethodCallToConstructorForClassesUsingTraitRector extends Abstrac
         $constructor = $this->getOrCreateConstructorMethod($node);
 
         foreach ($newConstructorStmts as $newConstructorStmt) {
-            if (!$newConstructorStmt instanceof Expression || !$newConstructorStmt->expr instanceof MethodCall) {
+            if (! $newConstructorStmt instanceof Expression || ! $newConstructorStmt->expr instanceof MethodCall) {
                 continue;
             }
 
@@ -147,9 +145,7 @@ final class AddMethodCallToConstructorForClassesUsingTraitRector extends Abstrac
         return $nodes;
     }
 
-    /**
-     * @throws ShouldNotHappenException
-     */
+
     private function getOrCreateConstructorMethod(Class_ $node): ClassMethod
     {
         $constructor = $node->getMethod(MethodName::CONSTRUCT);
@@ -159,9 +155,7 @@ final class AddMethodCallToConstructorForClassesUsingTraitRector extends Abstrac
         }
 
         $constructor = $this->constructorClassMethodFactory->createConstructorClassMethod([], []);
-        $constructor->stmts = [
-            new Expression($this->syliusNodeFactory->createParentConstructWithParams([]))
-        ];
+        $constructor->stmts = [new Expression($this->syliusNodeFactory->createParentConstructWithParams([]))];
 
         $this->insertConstructorAfterTraits($node, $constructor);
 

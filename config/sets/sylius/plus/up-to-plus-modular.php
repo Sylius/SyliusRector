@@ -7,7 +7,7 @@ namespace Sylius\SyliusRector\Set;
 use Rector\Config\RectorConfig;
 use Rector\Renaming\Rector\Name\RenameClassRector;
 
-return static function(RectorConfig $rectorConfig): void {
+return static function (RectorConfig $rectorConfig): void {
     $rectorConfig->ruleWithConfiguration(RenameClassRector::class, [
         'Sylius\Plus\Controller\DashboardController' => 'Sylius\MultiStorePlugin\ChannelAdmin\Infrastructure\Controller\DashboardController',
         'Sylius\Plus\Entity\LastLoginIpAwareInterface' => 'Sylius\MultiStorePlugin\ChannelAdmin\Domain\Model\LastLoginIpAwareInterface',

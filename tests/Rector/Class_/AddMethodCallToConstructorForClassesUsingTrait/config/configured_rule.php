@@ -13,7 +13,7 @@ return static function (RectorConfig $rectorConfig): void {
             new AddMethodCallToConstructorForClassesUsingTrait('this', 'initializeSomething'),
         ],
         'Sylius\MultiStorePlugin\BusinessUnits\Domain\Model\BusinessUnitAwareTrait' => [
-            new AddMethodCallToConstructorForClassesUsingTrait('this', 'initializeSomethingElse')
+            new AddMethodCallToConstructorForClassesUsingTrait('this', 'initializeSomethingElse'),
         ],
     ]);
 };

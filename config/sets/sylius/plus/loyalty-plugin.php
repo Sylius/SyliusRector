@@ -8,13 +8,9 @@ use Sylius\SyliusRector\Rector\Class_\AddTraitToClassExtendingTypeRector;
 
 return static function (RectorConfig $rectorConfig): void {
     $rectorConfig->ruleWithConfiguration(AddInterfaceToClassExtendingTypeRector::class, [
-        'Sylius\Component\Core\Model\Customer' => [
-            'Sylius\LoyaltyPlugin\Domain\Model\CustomerInterface',
-        ],
+        'Sylius\Component\Core\Model\Customer' => ['Sylius\LoyaltyPlugin\Domain\Model\CustomerInterface'],
     ]);
     $rectorConfig->ruleWithConfiguration(AddTraitToClassExtendingTypeRector::class, [
-        'Sylius\Component\Core\Model\Customer' => [
-            'Sylius\LoyaltyPlugin\Domain\Model\LoyaltyAwareTrait',
-        ],
+        'Sylius\Component\Core\Model\Customer' => ['Sylius\LoyaltyPlugin\Domain\Model\LoyaltyAwareTrait'],
     ]);
 };

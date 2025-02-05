@@ -8,9 +8,7 @@ use Sylius\SyliusRector\Rector\Class_\AddTraitToClassExtendingTypeRector;
 
 return static function (RectorConfig $rectorConfig): void {
     $rectorConfig->ruleWithConfiguration(AddInterfaceToClassExtendingTypeRector::class, [
-        'Sylius\Component\Core\Model\Channel' => [
-            'Sylius\PriceHistoryPlugin\Domain\Model\ChannelInterface',
-        ],
+        'Sylius\Component\Core\Model\Channel' => ['Sylius\PriceHistoryPlugin\Domain\Model\ChannelInterface'],
         'Sylius\Component\Core\Model\ChannelPricing' => [
             'Sylius\PriceHistoryPlugin\Domain\Model\ChannelPricingInterface',
         ],

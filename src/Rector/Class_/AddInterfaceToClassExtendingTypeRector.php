@@ -10,7 +10,6 @@ use Rector\Contract\Rector\ConfigurableRectorInterface;
 use Rector\Rector\AbstractRector;
 use Sylius\SyliusRector\NodeManipulator\ClassInheritanceManipulator;
 use Sylius\SyliusRector\NodeManipulator\ClassInterfaceManipulator;
-use Symplify\RuleDocGenerator\Exception\PoorDocumentationException;
 use Symplify\RuleDocGenerator\ValueObject\CodeSample\CodeSample;
 use Symplify\RuleDocGenerator\ValueObject\RuleDefinition;
 
@@ -27,9 +26,7 @@ final class AddInterfaceToClassExtendingTypeRector extends AbstractRector implem
     ) {
     }
 
-    /**
-     * @throws PoorDocumentationException
-     */
+
     public function getRuleDefinition(): RuleDefinition
     {
         return new RuleDefinition(
@@ -42,7 +39,8 @@ final class AddInterfaceToClassExtendingTypeRector extends AbstractRector implem
                     class Channel extends BaseChannel
                     {
                     }
-                    CODE_SAMPLE,
+                    CODE_SAMPLE
+                    ,
                     <<<CODE_SAMPLE
                     use Sylius\Component\Channel\Model\Channel as BaseChannel;
 
@@ -71,7 +69,7 @@ final class AddInterfaceToClassExtendingTypeRector extends AbstractRector implem
     public function refactor(Node $node): Node
     {
         foreach ($this->addInterfaceToClassExtendingTypeRectorConfig as $className => $interfaces) {
-            if (!$this->classInheritanceManipulator->isDerivative($node, $className)) {
+            if (! $this->classInheritanceManipulator->isDerivative($node, $className)) {
                 continue;
             }
 

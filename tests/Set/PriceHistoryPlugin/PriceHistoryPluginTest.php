@@ -9,13 +9,17 @@ use Rector\Testing\PHPUnit\AbstractRectorTestCase;
 
 final class PriceHistoryPluginTest extends AbstractRectorTestCase
 {
-    /** @dataProvider provideData() */
+    /**
+     * @dataProvider provideData()
+     */
     public function test(string $file): void
     {
         $this->doTestFile($file);
     }
 
-    /** @return Iterator<string> */
+    /**
+     * @return Iterator<string>
+     */
     public function provideData(): Iterator
     {
         return self::yieldFilesFromDirectory(__DIR__ . '/Fixture');

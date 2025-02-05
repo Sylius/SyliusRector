@@ -12,9 +12,7 @@ use Sylius\SyliusRector\Rector\TraitUse\AliasTraitMethodRector;
 
 return static function (RectorConfig $rectorConfig): void {
     $rectorConfig->ruleWithConfiguration(AddInterfaceToClassExtendingTypeRector::class, [
-        'Sylius\Component\Core\Model\AdminUser' => [
-            'Sylius\PlusRbacPlugin\Domain\Model\AdminUserInterface',
-        ],
+        'Sylius\Component\Core\Model\AdminUser' => ['Sylius\PlusRbacPlugin\Domain\Model\AdminUserInterface'],
     ]);
 
     $rectorConfig->ruleWithConfiguration(AddTraitToClassExtendingTypeRector::class, [

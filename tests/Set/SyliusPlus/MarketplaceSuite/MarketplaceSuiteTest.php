@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Sylius\SyliusRector\Tests\Set\Marketplace;
+namespace Sylius\SyliusRector\Tests\Set\SyliusPlus\MarketplaceSuite;
 
 use Rector\Testing\PHPUnit\AbstractRectorTestCase;
 
-final class MarketplacePluginTest extends AbstractRectorTestCase
+final class MarketplaceSuiteTest extends AbstractRectorTestCase
 {
     /**
      * @dataProvider provideData()
@@ -21,11 +21,7 @@ final class MarketplacePluginTest extends AbstractRectorTestCase
      */
     public function provideData(): \Iterator
     {
-        $files = self::yieldFilesFromDirectory(__DIR__ . '/Fixture');
-
-        foreach ($files as $file) {
-            yield $file;
-        }
+        return self::yieldFilesFromDirectory(__DIR__ . '/Fixture');
     }
 
     public function provideConfigFilePath(): string

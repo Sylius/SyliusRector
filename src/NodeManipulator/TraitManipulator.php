@@ -22,6 +22,34 @@ final class TraitManipulator
         $this->addTraitUse($class, $traitUse);
     }
 
+    public function hasAliasForMethod(TraitUse $trait, string $methodName): bool
+    {
+        foreach ($trait->adaptations as $adaptation) {
+            if (! $adaptation instanceof Alias) {
+                continue;
+            }
+
+            if ($adaptation->method->toString() === $methodName) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    public function removeAliasForMethod(TraitUse $trait, string $methodName): void
+    {
+        foreach ($trait->adaptations as $key => $adaptation) {
+            if (! $adaptation instanceof Alias) {
+                continue;
+            }
+
+            if ($adaptation->method->toString() === $methodName) {
+                unset($trait->adaptations[$key]);
+            }
+        }
+    }
+
     private function addTraitUse(Class_ $class, TraitUse $traitUse): void
     {
         foreach (self::BEFORE_TRAIT_TYPES as $type) {
@@ -48,33 +76,5 @@ final class TraitManipulator
         array_splice($stmts, $key, 0, [$stmt]);
 
         return $stmts;
-    }
-
-    public function hasAliasForMethod(TraitUse $trait, string $methodName): bool
-    {
-        foreach ($trait->adaptations as $adaptation) {
-            if (!$adaptation instanceof Alias) {
-                continue;
-            }
-
-            if ($adaptation->method->toString() === $methodName) {
-                return true;
-            }
-        }
-
-        return false;
-    }
-
-    public function removeAliasForMethod(TraitUse $trait, string $methodName): void
-    {
-        foreach ($trait->adaptations as $key => $adaptation) {
-            if (!$adaptation instanceof Alias) {
-                continue;
-            }
-
-            if ($adaptation->method->toString() === $methodName) {
-                unset($trait->adaptations[$key]);
-            }
-        }
     }
 }

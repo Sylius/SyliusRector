@@ -10,7 +10,6 @@ use PhpParser\Node\Stmt\TraitUseAdaptation\Alias;
 use Rector\Contract\Rector\ConfigurableRectorInterface;
 use Rector\Rector\AbstractRector;
 use Sylius\SyliusRector\NodeManipulator\TraitManipulator;
-use Symplify\RuleDocGenerator\Exception\PoorDocumentationException;
 use Symplify\RuleDocGenerator\ValueObject\CodeSample\CodeSample;
 use Symplify\RuleDocGenerator\ValueObject\RuleDefinition;
 
@@ -26,9 +25,7 @@ final class AliasTraitMethodRector extends AbstractRector implements Configurabl
     ) {
     }
 
-    /**
-     * @throws PoorDocumentationException
-     */
+
     public function getRuleDefinition(): RuleDefinition
     {
         return new RuleDefinition(
@@ -42,7 +39,8 @@ final class AliasTraitMethodRector extends AbstractRector implements Configurabl
                 {
                     use SomeTrait;
                 }
-                CODE_SAMPLE,
+                CODE_SAMPLE
+                    ,
                     <<<CODE_SAMPLE
                 use Sylius\Component\Channel\Model\Channel as BaseChannel;
 
@@ -70,12 +68,12 @@ final class AliasTraitMethodRector extends AbstractRector implements Configurabl
 
     public function refactor(TraitUse|Node $node): Node
     {
-        if (!$node instanceof TraitUse) {
+        if (! $node instanceof TraitUse) {
             return $node;
         }
 
         foreach ($node->traits as $trait) {
-            if (!$this->isTraitSupported($trait)) {
+            if (! $this->isTraitSupported($trait)) {
                 continue;
             }
 
@@ -109,6 +107,11 @@ final class AliasTraitMethodRector extends AbstractRector implements Configurabl
      */
     private function createAlias(array $configuration): Alias
     {
-        return new Alias(null, $configuration['traitMethod'], (int) $configuration['visibility'], $configuration['newMethodName']);
+        return new Alias(
+            null,
+            $configuration['traitMethod'],
+            (int) $configuration['visibility'],
+            $configuration['newMethodName']
+        );
     }
 }

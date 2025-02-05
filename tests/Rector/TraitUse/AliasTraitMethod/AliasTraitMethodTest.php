@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Sylius\SyliusRector\Tests\Rector\TraitUse\AliasTraitMethod;
 
-use Iterator;
 use Rector\Testing\PHPUnit\AbstractRectorTestCase;
 
 final class AliasTraitMethodTest extends AbstractRectorTestCase
@@ -18,9 +17,9 @@ final class AliasTraitMethodTest extends AbstractRectorTestCase
     }
 
     /**
-     * @return Iterator<string>
+     * @return \Iterator<string>
      */
-    public function provideData(): Iterator
+    public function provideData(): \Iterator
     {
         return self::yieldFilesFromDirectory(__DIR__ . '/Fixture');
     }

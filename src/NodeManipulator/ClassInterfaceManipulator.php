@@ -18,7 +18,7 @@ final class ClassInterfaceManipulator
     public function hasInterface(Class_ $class, string $interfaceName): bool
     {
         foreach ($class->implements as $implement) {
-            if (!$this->nodeNameResolver->isName($implement, $interfaceName)) {
+            if (! $this->nodeNameResolver->isName($implement, $interfaceName)) {
                 continue;
             }
 

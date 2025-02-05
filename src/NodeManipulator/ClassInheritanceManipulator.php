@@ -19,7 +19,7 @@ final class ClassInheritanceManipulator
     {
         $reflection = $this->reflectionResolver->resolveClassReflection($class);
 
-        if (!$reflection instanceof ClassReflection) {
+        if (! $reflection instanceof ClassReflection) {
             return false;
         }
 

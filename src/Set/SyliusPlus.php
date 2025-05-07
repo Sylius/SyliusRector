@@ -6,7 +6,7 @@ namespace Sylius\SyliusRector\Set;
 
 final class SyliusPlus
 {
-    public const B2B_SUITE_20 = __DIR__ . '/../../config/sets/sylius/plus/b2b-suite20.php';
+    public const B2B_SUITE = __DIR__ . '/../../config/sets/sylius/plus/b2b-suite.php';
 
     public const B2B_SUITE_21 = __DIR__ . '/../../config/sets/sylius/plus/b2b-suite21.php';
 

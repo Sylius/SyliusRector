@@ -52,5 +52,4 @@ return static function (RectorConfig $rectorConfig): void {
             new AddMethodCallToConstructorForClassesUsingTrait('this', 'initializeOrganizationsTrait'),
         ],
     ]);
-
 };

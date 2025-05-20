@@ -1,6 +1,6 @@
 <?php
 
-namespace Sylius\SyliusRector\Tests\Set\MolliePlugin\Fixture;
+namespace Sylius\SyliusRector\Tests\Set\MolliePlugin\Fixture\Remove;
 
 use Sylius\Component\Core\Model\ProductVariant as BaseProductVariant;
 
@@ -13,7 +13,7 @@ class ProductVariant extends BaseProductVariant
 -----
 <?php
 
-namespace Sylius\SyliusRector\Tests\Set\MolliePlugin\Fixture;
+namespace Sylius\SyliusRector\Tests\Set\MolliePlugin\Fixture\Remove;
 
 use Sylius\Component\Core\Model\ProductVariant as BaseProductVariant;
 

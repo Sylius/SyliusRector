@@ -1,6 +1,6 @@
 <?php
 
-namespace Sylius\SyliusRector\Tests\Set\MolliePlugin\Fixture;
+namespace Sylius\SyliusRector\Tests\Set\MolliePlugin\Fixture\Remove;
 
 use Sylius\Component\Core\Model\Order as BaseOrder;
 
@@ -16,7 +16,7 @@ class Order extends BaseOrder implements \Sylius\MolliePlugin\Entity\OrderInterf
 -----
 <?php
 
-namespace Sylius\SyliusRector\Tests\Set\MolliePlugin\Fixture;
+namespace Sylius\SyliusRector\Tests\Set\MolliePlugin\Fixture\Remove;
 
 use Sylius\Component\Core\Model\Order as BaseOrder;
 

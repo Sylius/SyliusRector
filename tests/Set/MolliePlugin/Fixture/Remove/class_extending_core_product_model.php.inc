@@ -1,6 +1,6 @@
 <?php
 
-namespace Sylius\SyliusRector\Tests\Set\MolliePlugin\Fixture;
+namespace Sylius\SyliusRector\Tests\Set\MolliePlugin\Fixture\Remove;
 
 use Sylius\Component\Core\Model\Product as BaseProduct;
 
@@ -13,7 +13,7 @@ class Product extends BaseProduct implements \Sylius\MolliePlugin\Entity\Product
 -----
 <?php
 
-namespace Sylius\SyliusRector\Tests\Set\MolliePlugin\Fixture;
+namespace Sylius\SyliusRector\Tests\Set\MolliePlugin\Fixture\Remove;
 
 use Sylius\Component\Core\Model\Product as BaseProduct;
 

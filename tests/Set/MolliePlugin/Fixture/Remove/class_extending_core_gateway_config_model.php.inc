@@ -1,6 +1,6 @@
 <?php
 
-namespace Sylius\SyliusRector\Tests\Set\MolliePlugin\Fixture;
+namespace Sylius\SyliusRector\Tests\Set\MolliePlugin\Fixture\Remove;
 
 use Sylius\Bundle\PayumBundle\Model\GatewayConfig as BaseGatewayConfig;
 
@@ -20,7 +20,7 @@ class GatewayConfig extends BaseGatewayConfig implements \Sylius\MolliePlugin\En
 -----
 <?php
 
-namespace Sylius\SyliusRector\Tests\Set\MolliePlugin\Fixture;
+namespace Sylius\SyliusRector\Tests\Set\MolliePlugin\Fixture\Remove;
 
 use Sylius\Bundle\PayumBundle\Model\GatewayConfig as BaseGatewayConfig;
 

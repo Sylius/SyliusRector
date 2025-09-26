@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Sylius\SyliusRector\Tests\Set\MolliePlugin;
+namespace Sylius\SyliusRector\Tests\Set\AdyenPlugin;
 
 use Iterator;
 use Rector\Testing\PHPUnit\AbstractRectorTestCase;
 
-final class RemoveMolliePluginFromSylius114 extends AbstractRectorTestCase
+final class AdyenPlugin10Test extends AbstractRectorTestCase
 {
     /** @dataProvider provideData() */
     public function test(string $file): void
@@ -18,11 +18,11 @@ final class RemoveMolliePluginFromSylius114 extends AbstractRectorTestCase
     /** @return Iterator<string> */
     public function provideData(): Iterator
     {
-        return self::yieldFilesFromDirectory(__DIR__ . '/Fixture/Remove');
+        return self::yieldFilesFromDirectory(__DIR__ . '/Fixture');
     }
 
     public function provideConfigFilePath(): string
     {
-        return __DIR__ . '/config/remove_from_114.php';
+        return __DIR__ . '/config/adyen_plugin_1_0.php';
     }
 }

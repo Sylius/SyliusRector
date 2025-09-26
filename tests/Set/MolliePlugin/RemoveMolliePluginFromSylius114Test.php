@@ -7,7 +7,7 @@ namespace Sylius\SyliusRector\Tests\Set\MolliePlugin;
 use Iterator;
 use Rector\Testing\PHPUnit\AbstractRectorTestCase;
 
-final class RemoveMolliePluginFromSylius114 extends AbstractRectorTestCase
+final class RemoveMolliePluginFromSylius114Test extends AbstractRectorTestCase
 {
     /** @dataProvider provideData() */
     public function test(string $file): void

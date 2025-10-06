@@ -57,7 +57,14 @@ final class TraitManipulator
                 continue;
             }
 
-            if ($adaptation->method->toString() === $methodName) {
+            $method = $adaptation->method->toString();
+
+            $traitName = $adaptation->trait?->getAttribute('originalName')?->name;
+            if (null !== $traitName) {
+                $method = $traitName . '::' . $method;
+            }
+
+            if ($method === $methodName) {
                 return true;
             }
         }
@@ -72,7 +79,14 @@ final class TraitManipulator
                 continue;
             }
 
-            if ($adaptation->method->toString() === $methodName) {
+            $method = $adaptation->method->toString();
+
+            $traitName = $adaptation->trait?->getAttribute('originalName')?->name;
+            if (null !== $traitName) {
+                $method = $traitName . '::' . $method;
+            }
+
+            if ($method === $methodName) {
                 unset($trait->adaptations[$key]);
             }
         }

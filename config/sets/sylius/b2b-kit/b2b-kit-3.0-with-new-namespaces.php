@@ -147,8 +147,6 @@ return static function (RectorConfig $rectorConfig): void {
         'Sylius\B2BKit\Form\Extension\SelectPaymentTypeExtension' => 'Sylius\B2BKit\Organization\Form\Extension\SelectPaymentTypeExtension',
         'Sylius\B2BKit\Form\Extension\SelectShippingTypeExtension' => 'Sylius\B2BKit\Organization\Form\Extension\SelectShippingTypeExtension',
         'Sylius\B2BKit\Form\Factory\ResourceFormFactory' => 'Sylius\B2BKit\Organization\Form\Factory\ResourceFormFactory',
-        'Sylius\B2BKit\Form\Type\BulkProductAddToCartType' => 'Sylius\B2BKit\Organization\Form\Type\BulkProductAddToCartType',
-        'Sylius\B2BKit\Form\Type\CartItemType' => 'Sylius\B2BKit\Organization\Form\Type\CartItemType',
         'Sylius\B2BKit\Form\Type\OrganizationAddressChoiceType' => 'Sylius\B2BKit\Organization\Form\Type\OrganizationAddressChoiceType',
         'Sylius\B2BKit\Form\Type\OrganizationAddressType' => 'Sylius\B2BKit\Organization\Form\Type\OrganizationAddressType',
         'Sylius\B2BKit\Form\Type\OrganizationAddUserType' => 'Sylius\B2BKit\Organization\Form\Type\OrganizationAddUserType',

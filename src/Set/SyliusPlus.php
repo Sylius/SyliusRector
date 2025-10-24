@@ -25,4 +25,6 @@ final class SyliusPlus
     public const UPGRADE_TO_MODULAR = __DIR__ . '/../../config/sets/sylius/plus/up-to-plus-modular.php';
 
     public const RFQ_PLUGIN = __DIR__ . '/../../config/sets/sylius/plus/rfq-plugin.php';
+
+    public const B2B_SUITE_UP_TO_30 = __DIR__ . '/../../config/sets/sylius/b2b-kit/b2b-kit-3.0-with-new-namespaces.php';
 }

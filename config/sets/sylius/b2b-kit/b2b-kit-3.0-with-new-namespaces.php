@@ -287,10 +287,5 @@ return static function (RectorConfig $rectorConfig): void {
         'Sylius\B2BKit\ReorderProcessing\ReorderProcessorsPriorityQueue' => 'Sylius\B2BKit\AdminOrderManagement\ReorderProcessing\ReorderProcessorsPriorityQueue',
         'Sylius\B2BKit\ReorderProcessing\ReorderProcessorsPriorityQueueInterface' => 'Sylius\B2BKit\AdminOrderManagement\ReorderProcessing\ReorderProcessorsPriorityQueueInterface',
         'Sylius\B2BKit\ReorderProcessing\ReorderShipmentProcessor' => 'Sylius\B2BKit\AdminOrderManagement\ReorderProcessing\ReorderShipmentProcessor',
-        'Tests\Unit\PricingLists\Sylius\B2BKit\Provider' => 'Tests\Sylius\B2BKit\Unit\PricingLists\Provider',
-        'Tests\Unit\PricingLists\Sylius\B2BKit\Strategy' => 'Tests\Sylius\B2BKit\Unit\PricingLists\Strategy',
-        'Tests\Unit\PricingLists\Sylius\B2BKit\Calculator' => 'Tests\Sylius\B2BKit\Unit\PricingLists\Calculator',
-        'Tests\Unit\PricingLists\Sylius\B2BKit\OrderProcessor' => 'Tests\Sylius\B2BKit\Unit\PricingLists\OrderProcessor',
-        'Tests\Unit\PricingLists\Twig\Component\Sylius\B2BKit' => 'Tests\Sylius\B2BKit\Unit\PricingLists\Twig\Component',
     ]);
 };

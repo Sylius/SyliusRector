@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Set\B2BKit;
+namespace Set\SyliusPlus\B2BKit;
 
 use Iterator;
 use Rector\Testing\PHPUnit\AbstractRectorTestCase;
 
-class B2BKitTest extends AbstractRectorTestCase
+class B2BSuiteUpTo30Test extends AbstractRectorTestCase
 {
     /** @dataProvider provideData() */
     public function test(string $file): void
@@ -23,6 +23,6 @@ class B2BKitTest extends AbstractRectorTestCase
 
     public function provideConfigFilePath(): string
     {
-        return __DIR__ . '/config/up-b2b-kit.php';
+        return __DIR__ . '/config/configured_rule.php';
     }
 }

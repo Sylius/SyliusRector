@@ -292,10 +292,5 @@ return static function (RectorConfig $rectorConfig): void {
         'Tests\Unit\PricingLists\Sylius\B2BKit\Calculator' => 'Tests\Sylius\B2BKit\Unit\PricingLists\Calculator',
         'Tests\Unit\PricingLists\Sylius\B2BKit\OrderProcessor' => 'Tests\Sylius\B2BKit\Unit\PricingLists\OrderProcessor',
         'Tests\Unit\PricingLists\Twig\Component\Sylius\B2BKit' => 'Tests\Sylius\B2BKit\Unit\PricingLists\Twig\Component',
-        'Sylius\B2BKit\Tests\Unit\Reorder\Checker' => 'Tests\Sylius\B2BKit\Unit\Reorder\Checker',
-        'Sylius\B2BKit\Tests\Unit\Reorder' => 'Tests\Sylius\B2BKit\Unit\Reorder',
-        'Sylius\B2BKit\Tests\Unit\Reorder\Processor' => 'Tests\Sylius\B2BKit\Unit\Reorder\Processor',
-        'Sylius\B2BKit\Tests\Unit\Reorder\Factory' => 'Tests\Sylius\B2BKit\Unit\Reorder\Factory',
-        'Sylius\B2BKit\Tests\Unit\Reorder\Handler' => 'Tests\Sylius\B2BKit\Unit\Reorder\Handler',
     ]);
 };

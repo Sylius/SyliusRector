@@ -10,8 +10,6 @@ final class SyliusPlus
 
     public const B2B_SUITE_21 = __DIR__ . '/../../config/sets/sylius/plus/b2b-suite21.php';
 
-    public const B2B_SUITE_30 = __DIR__ . '/../../config/sets/sylius/plus/b2b-suite30.php';
-
     public const MARKETPLACE_SUITE = __DIR__ . '/../../config/sets/sylius/plus/marketplace-suite.php';
 
     public const LOYALTY_PLUGIN = __DIR__ . '/../../config/sets/sylius/plus/loyalty-plugin.php';

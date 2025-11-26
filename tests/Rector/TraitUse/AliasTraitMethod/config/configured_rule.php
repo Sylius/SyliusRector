@@ -7,7 +7,6 @@ use Rector\Config\RectorConfig;
 use Sylius\SyliusRector\Rector\TraitUse\AliasTraitMethodRector;
 
 return static function (RectorConfig $rectorConfig): void {
-    $rectorConfig->import(__DIR__ . '/../../../../../config/config.php');
     $rectorConfig->ruleWithConfiguration(AliasTraitMethodRector::class, [
         'Sylius\MultiStorePlugin\CustomerPools\Domain\Model\CustomerPoolAwareTrait' => [
             [

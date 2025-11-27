@@ -14,11 +14,13 @@ class ProductVariant extends BaseProductVariant
 
 namespace Sylius\SyliusRector\Tests\Set\MolliePlugin\Fixture\Add;
 
+use Sylius\MolliePlugin\Entity\ProductVariantInterface;
+use Sylius\MolliePlugin\Entity\RecurringProductVariantTrait;
 use Sylius\Component\Core\Model\ProductVariant as BaseProductVariant;
 
-class ProductVariant extends BaseProductVariant implements \Sylius\MolliePlugin\Entity\ProductVariantInterface
+class ProductVariant extends BaseProductVariant implements ProductVariantInterface
 {
-    use \Sylius\MolliePlugin\Entity\RecurringProductVariantTrait;
+    use RecurringProductVariantTrait;
 }
 
 ?>

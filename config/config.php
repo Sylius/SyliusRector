@@ -7,5 +7,6 @@ use Sylius\SyliusRector\SetProvider\SyliusSetProvider;
 
 return RectorConfig::configure()
     ->withSetProviders(SyliusSetProvider::class)
+    ->withImportNames()
     ->withComposerBased(symfony: true)
 ;

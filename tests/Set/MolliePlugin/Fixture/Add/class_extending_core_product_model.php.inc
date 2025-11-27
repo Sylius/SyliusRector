@@ -14,11 +14,13 @@ class Product extends BaseProduct
 
 namespace Sylius\SyliusRector\Tests\Set\MolliePlugin\Fixture\Add;
 
+use Sylius\MolliePlugin\Entity\ProductInterface;
+use Sylius\MolliePlugin\Entity\ProductTrait;
 use Sylius\Component\Core\Model\Product as BaseProduct;
 
-class Product extends BaseProduct implements \Sylius\MolliePlugin\Entity\ProductInterface
+class Product extends BaseProduct implements ProductInterface
 {
-    use \Sylius\MolliePlugin\Entity\ProductTrait;
+    use ProductTrait;
 }
 
 ?>

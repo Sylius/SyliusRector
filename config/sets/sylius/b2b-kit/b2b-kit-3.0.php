@@ -15,6 +15,9 @@ return static function (RectorConfig $rectorConfig): void {
         'Sylius\Component\Core\Model\Address' => [
             'Sylius\B2BKit\Organization\Entity\AddressInterface',
         ],
+        'Sylius\Component\Core\Model\Channel' => [
+            'Sylius\B2BKit\HidePrices\Entity\ChannelInterface',
+        ],
         'Sylius\Component\Core\Model\Customer' => [
             'Sylius\B2BKit\Organization\Entity\CustomerInterface',
         ],
@@ -35,6 +38,9 @@ return static function (RectorConfig $rectorConfig): void {
     $rectorConfig->ruleWithConfiguration(AddTraitToClassExtendingTypeRector::class, [
         'Sylius\Component\Core\Model\Address' => [
             'Sylius\B2BKit\Organization\Entity\AddressAwareTrait',
+        ],
+        'Sylius\Component\Core\Model\Channel' => [
+            'Sylius\B2BKit\HidePrices\Entity\ChannelLoginRequiredTrait',
         ],
         'Sylius\Component\Core\Model\Customer' => [
             'Sylius\B2BKit\Organization\Entity\CustomerAwareTrait',

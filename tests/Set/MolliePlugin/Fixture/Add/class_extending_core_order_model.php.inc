@@ -14,14 +14,19 @@ class Order extends BaseOrder
 
 namespace Sylius\SyliusRector\Tests\Set\MolliePlugin\Fixture\Add;
 
+use Sylius\MolliePlugin\Entity\OrderInterface;
+use Sylius\MolliePlugin\Entity\MolliePaymentIdOrderTrait;
+use Sylius\MolliePlugin\Entity\QRCodeOrderTrait;
+use Sylius\MolliePlugin\Entity\RecurringOrderTrait;
+use Sylius\MolliePlugin\Entity\AbandonedEmailOrderTrait;
 use Sylius\Component\Core\Model\Order as BaseOrder;
 
-class Order extends BaseOrder implements \Sylius\MolliePlugin\Entity\OrderInterface
+class Order extends BaseOrder implements OrderInterface
 {
-    use \Sylius\MolliePlugin\Entity\MolliePaymentIdOrderTrait;
-    use \Sylius\MolliePlugin\Entity\QRCodeOrderTrait;
-    use \Sylius\MolliePlugin\Entity\RecurringOrderTrait;
-    use \Sylius\MolliePlugin\Entity\AbandonedEmailOrderTrait;
+    use MolliePaymentIdOrderTrait;
+    use QRCodeOrderTrait;
+    use RecurringOrderTrait;
+    use AbandonedEmailOrderTrait;
 }
 
 ?>

@@ -14,11 +14,13 @@ class AdminUser extends BaseAdminUser
 
 namespace Sylius\SyliusRector\Tests\Set\MolliePlugin\Fixture\Add;
 
+use Sylius\MolliePlugin\Entity\OnboardingStatusAwareInterface;
+use Sylius\MolliePlugin\Entity\OnboardingStatusAwareTrait;
 use Sylius\Component\Core\Model\AdminUser as BaseAdminUser;
 
-class AdminUser extends BaseAdminUser implements \Sylius\MolliePlugin\Entity\OnboardingStatusAwareInterface
+class AdminUser extends BaseAdminUser implements OnboardingStatusAwareInterface
 {
-    use \Sylius\MolliePlugin\Entity\OnboardingStatusAwareTrait;
+    use OnboardingStatusAwareTrait;
 }
 
 ?>

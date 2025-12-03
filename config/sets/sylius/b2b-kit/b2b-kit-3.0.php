@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+use Composer\InstalledVersions;
 use PhpParser\Node\Stmt\Class_;
 use Rector\Config\RectorConfig;
 use Sylius\SyliusRector\Rector\Class_\AddInterfaceToClassExtendingTypeRector;
@@ -63,22 +64,26 @@ return static function (RectorConfig $rectorConfig): void {
         ],
     ]);
 
-    $rectorConfig->ruleWithConfiguration(AliasTraitMethodRector::class, [
-        'Sylius\B2BKit\Organization\Entity\CustomerGroupsAwareTrait' => [
-            [
-                'traitMethod' => 'CustomerGroupsAwareTrait::__construct',
-                'newMethodName' => 'initializeCustomerGroupsTrait',
-                'visibility' => Class_::MODIFIER_PRIVATE,
+    $b2bVersion = InstalledVersions::getVersion('sylius/b2b-kit');
+
+    if ($b2bVersion !== null && version_compare($b2bVersion, '3.0.2', '<')) {
+        $rectorConfig->ruleWithConfiguration(AliasTraitMethodRector::class, [
+            'Sylius\B2BKit\Organization\Entity\CustomerGroupsAwareTrait' => [
+                [
+                    'traitMethod' => 'CustomerGroupsAwareTrait::__construct',
+                    'newMethodName' => 'initializeCustomerGroupsTrait',
+                    'visibility' => Class_::MODIFIER_PRIVATE,
+                ],
             ],
-        ],
-        'Sylius\B2BKit\Organization\Entity\OrganizationsAwareTrait' => [
-            [
-                'traitMethod' => 'OrganizationsAwareTrait::__construct',
-                'newMethodName' => 'initializeOrganizationsTrait',
-                'visibility' => Class_::MODIFIER_PRIVATE,
+            'Sylius\B2BKit\Organization\Entity\OrganizationsAwareTrait' => [
+                [
+                    'traitMethod' => 'OrganizationsAwareTrait::__construct',
+                    'newMethodName' => 'initializeOrganizationsTrait',
+                    'visibility' => Class_::MODIFIER_PRIVATE,
+                ],
             ],
-        ],
-    ]);
+        ]);
+    }
 
     $rectorConfig->ruleWithConfiguration(AddMethodCallToConstructorForClassesUsingTraitRector::class, [
         'Sylius\B2BKit\Organization\Entity\CustomerGroupsAwareTrait' => [

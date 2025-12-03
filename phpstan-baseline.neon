@@ -11,6 +11,16 @@ parameters:
 			path: src/Rector/Class_/AddInterfaceToClassExtendingTypeRector.php
 
 		-
+			message: "#^Parameter \\#1 \\$node \\(PhpParser\\\\Node\\\\Stmt\\\\Class_\\) of method Sylius\\\\SyliusRector\\\\Rector\\\\Class_\\\\AddAttributeOverridesToClassExtendingTypeRector\\:\\:refactor\\(\\) should be contravariant with parameter \\$node \\(PhpParser\\\\Node\\) of method Rector\\\\Contract\\\\Rector\\\\RectorInterface\\:\\:refactor\\(\\)$#"
+			count: 3
+			path: src/Rector/Class_/AddAttributeOverridesToClassExtendingTypeRector.php
+
+		-
+			message: "#^Property Sylius\\\\SyliusRector\\\\Rector\\\\Class_\\\\AddAttributeOverridesToClassExtendingTypeRector\\:\\:\\$configuration type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Rector/Class_/AddAttributeOverridesToClassExtendingTypeRector.php
+
+		-
 			message: "#^Method Sylius\\\\SyliusRector\\\\Rector\\\\Class_\\\\AddMethodCallToConstructorForClassesUsingTraitRector\\:\\:refactor\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: src/Rector/Class_/AddMethodCallToConstructorForClassesUsingTraitRector.php

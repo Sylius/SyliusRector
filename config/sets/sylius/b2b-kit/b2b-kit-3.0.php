@@ -5,10 +5,12 @@ declare(strict_types=1);
 use Composer\InstalledVersions;
 use PhpParser\Node\Stmt\Class_;
 use Rector\Config\RectorConfig;
+use Sylius\SyliusRector\Rector\Class_\AddAttributeOverridesToClassExtendingTypeRector;
 use Sylius\SyliusRector\Rector\Class_\AddInterfaceToClassExtendingTypeRector;
 use Sylius\SyliusRector\Rector\Class_\AddMethodCallToConstructorForClassesUsingTraitRector;
 use Sylius\SyliusRector\Rector\Class_\AddTraitToClassExtendingTypeRector;
 use Sylius\SyliusRector\Rector\Dto\AddMethodCallToConstructorForClassesUsingTrait;
+use Sylius\SyliusRector\Rector\Dto\AttributeOverride;
 use Sylius\SyliusRector\Rector\TraitUse\AliasTraitMethodRector;
 
 return static function (RectorConfig $rectorConfig): void {
@@ -33,6 +35,13 @@ return static function (RectorConfig $rectorConfig): void {
         ],
         'Sylius\Component\Core\Model\Product' => [
             'Sylius\B2BKit\Organization\Entity\ProductInterface',
+        ],
+    ]);
+
+    $rectorConfig->ruleWithConfiguration(AddAttributeOverridesToClassExtendingTypeRector::class, [
+        'Sylius\Component\Core\Model\Address' => [
+            new AttributeOverride('firstName', 'first_name', 'string', true),
+            new AttributeOverride('lastName', 'last_name', 'string', true),
         ],
     ]);
 

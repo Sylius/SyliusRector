@@ -73,7 +73,9 @@ return static function (RectorConfig $rectorConfig): void {
         ],
     ]);
 
-    $b2bVersion = InstalledVersions::getVersion('sylius/b2b-kit');
+    $b2bVersion = InstalledVersions::isInstalled('sylius/b2b-kit')
+        ? InstalledVersions::getVersion('sylius/b2b-kit')
+        : null;
 
     if ($b2bVersion !== null && version_compare($b2bVersion, '3.0.2', '<')) {
         $rectorConfig->ruleWithConfiguration(AliasTraitMethodRector::class, [

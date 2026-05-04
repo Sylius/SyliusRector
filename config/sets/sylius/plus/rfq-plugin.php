@@ -17,4 +17,14 @@ return static function (RectorConfig $rectorConfig): void {
             'Sylius\RfqPlugin\Entity\Order\OfferAwareTrait',
         ],
     ]);
+    $rectorConfig->ruleWithConfiguration(AddInterfaceToClassExtendingTypeRector::class, [
+        'Sylius\Component\Core\Model\Channel' => [
+            'Sylius\RfqPlugin\Entity\Channel\RfqAdminEmailsAwareInterface',
+        ],
+    ]);
+    $rectorConfig->ruleWithConfiguration(AddTraitToClassExtendingTypeRector::class, [
+        'Sylius\Component\Core\Model\Channel' => [
+            'Sylius\RfqPlugin\Entity\Channel\RfqAdminEmailsAwareTrait',
+        ],
+    ]);
 };

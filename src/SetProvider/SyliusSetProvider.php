@@ -29,6 +29,13 @@ final class SyliusSetProvider implements SetProviderInterface
 
             new ComposerTriggeredSet(
                 'symfony',
+                'sylius/b2b-kit',
+                '4.0',
+                __DIR__ . '/../../config/sets/sylius/b2b-kit/b2b-kit-4.0.php'
+            ),
+
+            new ComposerTriggeredSet(
+                'symfony',
                 'sylius/product-configurator-plugin',
                 '0.1',
                 __DIR__ . '/../../config/sets/sylius/product-configuration-plugin/product-configuration-plugin.php'

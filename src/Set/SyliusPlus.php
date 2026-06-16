@@ -22,6 +22,8 @@ final class SyliusPlus
 
     public const RETURN_PLUGIN = __DIR__ . '/../../config/sets/sylius/plus/return-plugin.php';
 
+    public const RETURN_PLUGIN_22 = __DIR__ . '/../../config/sets/sylius/plus/return-plugin22.php';
+
     public const UPGRADE_TO_MODULAR = __DIR__ . '/../../config/sets/sylius/plus/up-to-plus-modular.php';
 
     public const RFQ_PLUGIN = __DIR__ . '/../../config/sets/sylius/plus/rfq-plugin.php';

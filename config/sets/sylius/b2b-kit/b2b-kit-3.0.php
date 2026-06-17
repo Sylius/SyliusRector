@@ -36,6 +36,15 @@ return static function (RectorConfig $rectorConfig): void {
         'Sylius\Component\Core\Model\Product' => [
             'Sylius\B2BKit\Organization\Entity\ProductInterface',
         ],
+        'Sylius\Bundle\CoreBundle\Doctrine\ORM\AddressRepository' => [
+            'Sylius\B2BKit\Organization\Repository\AddressRepositoryInterface',
+        ],
+        'Sylius\Bundle\CoreBundle\Doctrine\ORM\CustomerRepository' => [
+            'Sylius\B2BKit\Organization\Repository\CustomerRepositoryInterface',
+        ],
+        'Sylius\Bundle\CoreBundle\Doctrine\ORM\OrderRepository' => [
+            'Sylius\B2BKit\Organization\Repository\OrderRepositoryInterface',
+        ],
     ]);
 
     $rectorConfig->ruleWithConfiguration(AddAttributeOverridesToClassExtendingTypeRector::class, [
@@ -70,6 +79,15 @@ return static function (RectorConfig $rectorConfig): void {
         ],
         'Sylius\Bundle\CoreBundle\Doctrine\ORM\ProductRepository' => [
             'Sylius\B2BKit\Organization\Doctrine\ORM\CreateProductQueryBuilderTrait',
+        ],
+        'Sylius\Bundle\CoreBundle\Doctrine\ORM\AddressRepository' => [
+            'Sylius\B2BKit\Organization\Repository\AddressRepositoryTrait',
+        ],
+        'Sylius\Bundle\CoreBundle\Doctrine\ORM\CustomerRepository' => [
+            'Sylius\B2BKit\Organization\Repository\CustomerRepositoryTrait',
+        ],
+        'Sylius\Bundle\CoreBundle\Doctrine\ORM\OrderRepository' => [
+            'Sylius\B2BKit\Organization\Repository\OrderRepositoryTrait',
         ],
     ]);
 

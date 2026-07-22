@@ -38,7 +38,7 @@ final class SyliusSetProvider implements SetProviderInterface
                 'symfony',
                 'sylius/product-configurator-plugin',
                 '0.1',
-                __DIR__ . '/../../config/sets/sylius/product-configuration-plugin/product-configuration-plugin.php'
+                __DIR__ . '/../../config/sets/sylius/product-configurator-plugin/product-configurator-plugin.php'
             ),
         ];
     }

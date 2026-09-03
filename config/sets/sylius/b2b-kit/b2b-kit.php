@@ -5,11 +5,13 @@ declare(strict_types=1);
 use PhpParser\Node\Stmt\Class_;
 use Rector\Config\RectorConfig;
 use Sylius\SyliusRector\Rector\Class_\AddAttributeOverridesToClassExtendingTypeRector;
+use Sylius\SyliusRector\Rector\Class_\AddIndexToClassExtendingTypeRector;
 use Sylius\SyliusRector\Rector\Class_\AddInterfaceToClassExtendingTypeRector;
 use Sylius\SyliusRector\Rector\Class_\AddMethodCallToConstructorForClassesUsingTraitRector;
 use Sylius\SyliusRector\Rector\Class_\AddTraitToClassExtendingTypeRector;
 use Sylius\SyliusRector\Rector\Dto\AddMethodCallToConstructorForClassesUsingTrait;
 use Sylius\SyliusRector\Rector\Dto\AttributeOverride;
+use Sylius\SyliusRector\Rector\Dto\Index;
 use Sylius\SyliusRector\Rector\TraitUse\AliasTraitMethodRector;
 
 return static function (RectorConfig $rectorConfig): void {
@@ -70,6 +72,12 @@ return static function (RectorConfig $rectorConfig): void {
 
     $rectorConfig->ruleWithConfigurationComposerVersionBound(AddTraitToClassExtendingTypeRector::class, [
         'Sylius\Component\Core\Model\Payment' => ['Sylius\B2BKit\TradeCredit\Entity\TradeCreditPaymentTrait'],
+    ], 'sylius/b2b-kit', '>=4.0 <5.0');
+
+    $rectorConfig->ruleWithConfigurationComposerVersionBound(AddIndexToClassExtendingTypeRector::class, [
+        'Sylius\Component\Core\Model\Payment' => [
+            new Index('idx_payment_credit_approval_state', ['credit_approval_state']),
+        ],
     ], 'sylius/b2b-kit', '>=4.0 <5.0');
 
     $rectorConfig->ruleWithConfigurationComposerVersionBound(AddInterfaceToClassExtendingTypeRector::class, [

@@ -14,7 +14,7 @@ return static function (RectorConfig $rectorConfig): void {
         'Sylius\Component\Core\Model\Order' => [
             'Sylius\LiveOnePageCheckoutPlugin\Entity\OrderAndItemPromotionTotalAwareInterface',
         ],
-    ], 'sylius/live-one-page-checkout-plugin', '>=0.1 <0.2');
+    ], 'sylius/live-one-page-checkout-plugin', '>=1.0 <2.0');
 
     $rectorConfig->ruleWithConfigurationComposerVersionBound(AddTraitToClassExtendingTypeRector::class, [
         'Sylius\Component\Core\Model\Channel' => [
@@ -24,5 +24,5 @@ return static function (RectorConfig $rectorConfig): void {
             'Sylius\LiveOnePageCheckoutPlugin\Entity\OrderAndItemPromotionTotalAwareTrait',
             'Sylius\LiveOnePageCheckoutPlugin\Entity\OrderShippingTaxTotalTrait',
         ],
-    ], 'sylius/live-one-page-checkout-plugin', '>=0.1 <0.2');
+    ], 'sylius/live-one-page-checkout-plugin', '>=1.0 <2.0');
 };
